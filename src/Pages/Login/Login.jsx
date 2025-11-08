@@ -8,6 +8,7 @@ import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
   const { signInWithGoogle, user, setUser } = useAuth();
+  const [show, setShow] = useState(false);
   console.log(user);
   const handleGoogleSignIn = async () => {
     try {
@@ -30,7 +31,7 @@ const Login = () => {
       toast.error(message);
     }
   };
-  const [show, setShow] = useState(false);
+
   const handleShow = () => {
     setShow(!show);
   };
