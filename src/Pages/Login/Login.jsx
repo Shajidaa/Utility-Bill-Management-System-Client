@@ -1,12 +1,13 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs";
 import { Link } from "react-router";
 
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthContext";
+import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
-  const { signInWithGoogle, user, setUser } = use(AuthContext);
+  const { signInWithGoogle, user, setUser } = useAuth();
   console.log(user);
   const handleGoogleSignIn = async () => {
     try {
