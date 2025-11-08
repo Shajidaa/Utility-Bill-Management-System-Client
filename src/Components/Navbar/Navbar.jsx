@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import MyLinks from "../Shared/MyLinks/MyLinks";
 import MyContainer from "../Shared/MyContainer/MyContainer";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import useAuth from "../../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
-  // Home, , , Profile Avatar, Logout (right)
+  const { user, logOut } = useAuth();
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-
+  const navigate = useNavigate();
   useEffect(() => {
     const html = document.querySelector("html");
     html.setAttribute("data-theme", theme);
@@ -15,6 +17,13 @@ const Navbar = () => {
   const handleThemeToggle = (checked) => {
     setTheme(checked ? "dark" : "light");
   };
+  const handleLogOutBtn = () => {
+    logOut();
+    toast.success("Successfully Logout");
+    navigate("/");
+  };
+  console.log(user);
+
   const links = (
     <>
       <MyLinks>Home</MyLinks>
@@ -56,9 +65,16 @@ const Navbar = () => {
           <div className="hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
-          <MyLinks className={"btn"} to={"/login"}>
-            Login
-          </MyLinks>
+          {user ? (
+            <button className={"btn"} onClick={handleLogOutBtn}>
+              LogOut
+            </button>
+          ) : (
+            <MyLinks className={"btn"} to={"/login"}>
+              Login
+            </MyLinks>
+          )}
+
           <input
             onChange={(e) => handleThemeToggle(e.target.checked)}
             type="checkbox"
