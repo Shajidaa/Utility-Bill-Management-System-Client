@@ -12,7 +12,7 @@ const Navbar = () => {
     html.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
-  const handleTheme = (checked) => {
+  const handleThemeToggle = (checked) => {
     setTheme(checked ? "dark" : "light");
   };
   const links = (
@@ -47,27 +47,9 @@ const Navbar = () => {
             <ul
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
-            </ul>
+            ></ul>
           </div>
-          <a className=" text-xl">Management System</a>
+          <a className=" text-xl">PayUp</a>
         </div>
 
         <div className="navbar-end">
@@ -78,7 +60,7 @@ const Navbar = () => {
             Login
           </MyLinks>
           <input
-            onChange={(e) => handleTheme(e.target.checked)}
+            onChange={(e) => handleThemeToggle(e.target.checked)}
             type="checkbox"
             defaultChecked={localStorage.getItem("theme") === "dark"}
             checked={theme === "dark"}

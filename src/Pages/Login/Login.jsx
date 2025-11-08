@@ -1,8 +1,34 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs";
 import { Link } from "react-router";
 
+import { toast } from "react-toastify";
+import { AuthContext } from "../../Context/AuthContext";
+
 const Login = () => {
+  const { signInWithGoogle, user, setUser } = use(AuthContext);
+  console.log(user);
+  const handleGoogleSignIn = async () => {
+    try {
+      const res = await signInWithGoogle();
+
+      await setUser(res.user);
+      toast.success("Google login successful!");
+    } catch (err) {
+      let message = "Oops! Something went wrong. Please try again.";
+
+      if (err.code === "auth/popup-closed-by-user") {
+        message = "Login was cancelled. Please try again.";
+      } else if (err.code === "auth/network-request-failed") {
+        message =
+          "Network issue detected. Check your internet connection and retry.";
+      } else if (err.code === "auth/account-exists-with-different-credential") {
+        message =
+          "This email is already linked to another login method. Try signing in differently.";
+      }
+      toast.error(message);
+    }
+  };
   const [show, setShow] = useState(false);
   const handleShow = () => {
     setShow(!show);
@@ -53,7 +79,10 @@ const Login = () => {
             Don't have an account ? <Link to={"/register"}>Register</Link>
           </p>
           {/* Google */}
-          <button className="btn bg-white text-black border-[#e5e5e5]">
+          <button
+            onClick={handleGoogleSignIn}
+            className="btn bg-white text-black border-[#e5e5e5]"
+          >
             <svg
               aria-label="Google logo"
               width="16"
