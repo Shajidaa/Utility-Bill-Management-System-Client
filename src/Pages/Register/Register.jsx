@@ -11,13 +11,14 @@ const Register = () => {
   const [btnLoading, setBtnLoading] = useState(false);
 
   const navigate = useNavigate();
-
+  //google register
   const handleGoogleRegister = async () => {
     try {
       const res = await signInWithGoogle();
 
       await setUser(res.user);
       toast.success("Google login successful!");
+      navigate("/");
     } catch (err) {
       let message = "Oops! Something went wrong. Please try again.";
 
@@ -33,7 +34,7 @@ const Register = () => {
       toast.error(message);
     }
   };
-
+  //create user function
   const handleCreateUser = async (e) => {
     e.preventDefault();
     const from = e.target;
@@ -78,7 +79,7 @@ const Register = () => {
       setBtnLoading(false);
     }
   };
-
+  //password show hide
   const handleShow = () => {
     setShow(!show);
   };

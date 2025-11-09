@@ -9,6 +9,8 @@ const Navbar = () => {
   const { user, logOut } = useAuth();
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const navigate = useNavigate();
+  console.log(user);
+
   useEffect(() => {
     const html = document.querySelector("html");
     html.setAttribute("data-theme", theme);
@@ -65,16 +67,35 @@ const Navbar = () => {
           <div className="hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
-          {user ? (
-            <button className={"btn"} onClick={handleLogOutBtn}>
-              LogOut
-            </button>
-          ) : (
-            <MyLinks className={"btn"} to={"/login"}>
-              Login
-            </MyLinks>
-          )}
 
+          {user ? (
+            <div className="flex justify-center items-center gap-2">
+              {" "}
+              <div
+                data-tip={user.displayName}
+                className="md:size-12 size-8 tooltip  tooltip-bottom border-2 border-[#02471f] rounded-full "
+              >
+                <img
+                  className="w-full bg-cover h-full rounded-full  "
+                  src={user.photoURL}
+                  alt={user.displayName}
+                />
+              </div>
+              <Link
+                onClick={handleLogOutBtn}
+                to={"/login"}
+                className="btn  btn-sm md:btn-md "
+              >
+                Log Out
+              </Link>
+            </div>
+          ) : (
+            <div className="flex justify-center items-center gap-2">
+              <Link to={"login"} className="btn  btn-sm md:btn-md ">
+                Login
+              </Link>
+            </div>
+          )}
           <input
             onChange={(e) => handleThemeToggle(e.target.checked)}
             type="checkbox"
