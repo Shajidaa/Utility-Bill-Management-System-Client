@@ -13,7 +13,7 @@ const MyPayBills = () => {
       setMyBills(data.data);
     });
   }, [axiosInstance, user]);
-  console.log(myBills);
+
   const handleEditBtn = () => {
     editRef.current.showModal();
   };
@@ -40,7 +40,20 @@ const MyPayBills = () => {
       console.log(error);
     }
   };
-  const handleRemove = () => {};
+  const handleRemove = async (_id) => {
+    try {
+      instance.delete(`/my-bills/${_id}`).then((data) => {
+        if (data) {
+          console.log(data);
+
+          const updateData = myBills.filter((bill) => bill._id !== _id);
+          setMyBills(updateData);
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       <h1 className="text-2xl font-semibold text-center my-5">
