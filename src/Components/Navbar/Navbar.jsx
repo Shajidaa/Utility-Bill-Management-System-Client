@@ -9,7 +9,6 @@ const Navbar = () => {
   const { user, logOut } = useAuth();
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const navigate = useNavigate();
-  console.log(user);
 
   useEffect(() => {
     const html = document.querySelector("html");
@@ -24,12 +23,12 @@ const Navbar = () => {
     toast.success("Successfully Logout");
     navigate("/");
   };
-  console.log(user);
 
   const links = (
     <>
       <MyLinks to={"/"}>Home</MyLinks>
       <MyLinks to={"/bills"}>Bills</MyLinks>
+      <MyLinks to={"/add-bill"}>Add Bill</MyLinks>
       <MyLinks to={"/myPayBills"}>My Pay Bills</MyLinks>
     </>
   );

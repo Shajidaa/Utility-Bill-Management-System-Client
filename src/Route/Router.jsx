@@ -9,6 +9,7 @@ import BillsDetails from "../Pages/BillsDetails/BillsDetails";
 import MyPayBills from "../Pages/MyPayBills/MyPayBills";
 import Bills from "../Pages/Bills/Bills";
 import Spinner from "../Components/Shared/Spinner";
+import AddBills from "../Pages/Add Bills/AddBills";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/add-bill",
+        element: (
+          <PrivateRoute>
+            <AddBills></AddBills>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/bills-details/:id",

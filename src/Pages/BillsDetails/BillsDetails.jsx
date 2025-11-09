@@ -40,6 +40,7 @@ const BillsDetails = () => {
       billsId: billsId,
       address: address,
       phone: phone,
+      title: title,
     };
     try {
       const { data } = await axiosSecure.post("/add-bills", newBills);
@@ -139,6 +140,14 @@ const BillsDetails = () => {
               type="email"
               name="email"
               value={user?.email}
+              readOnly
+              className="input input-bordered w-full"
+            />
+            <label>Tittle</label>
+            <input
+              type="email"
+              name="email"
+              value={title}
               readOnly
               className="input input-bordered w-full"
             />
