@@ -29,7 +29,7 @@ const Navbar = () => {
   const links = (
     <>
       <MyLinks to={"/"}>Home</MyLinks>
-      <MyLinks>Bills</MyLinks>
+      <MyLinks to={"/bills"}>Bills</MyLinks>
       <MyLinks to={"/myPayBills"}>My Pay Bills</MyLinks>
     </>
   );

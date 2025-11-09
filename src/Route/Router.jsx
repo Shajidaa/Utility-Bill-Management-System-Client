@@ -7,6 +7,7 @@ import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import BillsDetails from "../Pages/BillsDetails/BillsDetails";
 import MyPayBills from "../Pages/MyPayBills/MyPayBills";
+import Bills from "../Pages/Bills/Bills";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
+      },
+      {
+        path: "/bills",
+        element: <Bills></Bills>,
       },
       {
         path: "/login",
