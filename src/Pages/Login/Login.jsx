@@ -3,22 +3,26 @@ import { BsEyeFill, BsEyeSlash } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router";
 
 import { toast } from "react-toastify";
-import { AuthContext } from "../../Context/AuthContext";
+
 import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
-  const { signInWithGoogle, user, setUser, logInFunc } = useAuth();
+  const { signInWithGoogle, setUser, logInFunc } = useAuth();
   const [show, setShow] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(user);
+  console.log(location);
+
+  // const from = location.state?.from || "/";
+
   const handleGoogleSignIn = async () => {
     try {
       const res = await signInWithGoogle();
 
       await setUser(res.user);
       toast.success("Google login successful!");
+      navigate(location.state ? location.state : "/");
     } catch (err) {
       let message = "Oops! Something went wrong. Please try again.";
 
@@ -34,6 +38,7 @@ const Login = () => {
       toast.error(message);
     }
   };
+
   const logInSubmit = async (e) => {
     e.preventDefault();
     const from = e.target;
@@ -63,6 +68,7 @@ const Login = () => {
       setBtnLoading(false);
     }
   };
+
   const handleShow = () => {
     setShow(!show);
   };

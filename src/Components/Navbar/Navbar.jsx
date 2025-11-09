@@ -26,9 +26,9 @@ const Navbar = () => {
 
   const links = (
     <>
-      <MyLinks>Home</MyLinks>
+      <MyLinks to={"/"}>Home</MyLinks>
       <MyLinks>Bills</MyLinks>
-      <MyLinks>My Pay Bills</MyLinks>
+      <MyLinks to={"/myPayBills"}>My Pay Bills</MyLinks>
     </>
   );
   return (
