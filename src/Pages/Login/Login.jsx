@@ -7,7 +7,8 @@ import { AuthContext } from "../../Context/AuthContext";
 import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
-  const { signInWithGoogle, user, setUser } = useAuth();
+  const { signInWithGoogle, user, setUser, logInFunc } =
+    useAuth();
   const [show, setShow] = useState(false);
   console.log(user);
   const handleGoogleSignIn = async () => {

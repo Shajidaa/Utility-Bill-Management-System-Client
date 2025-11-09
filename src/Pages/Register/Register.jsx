@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 import { toast } from "react-toastify";
 
 const Register = () => {
-  const { signInWithGoogle, setUser } = useAuth();
+  const { signInWithGoogle, setUser, createUserFunc } = useAuth();
   const [show, setShow] = useState(false);
+  const [btnLoading, setBtnLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleGoogleRegister = async () => {
     try {
@@ -30,6 +33,50 @@ const Register = () => {
     }
   };
 
+  const handleCreateUser = async (e) => {
+    e.preventDefault();
+    const from = e.target;
+    const displayName = from.name.value.trim();
+    const photoURL = from.photo.value.trim();
+    const email = from.email.value.trim().toLowerCase();
+    const password = from.password.value;
+
+    const passCondition = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+    if (!passCondition.test(password)) {
+      toast.error(
+        "Password must include uppercase, lowercase, and be at least 6 characters."
+      );
+      return;
+    }
+    setBtnLoading(true);
+    try {
+      const res = await createUserFunc(email, password);
+      const user = res.user;
+
+      toast.success("Account create successfully");
+      console.log(user);
+
+      navigate("/");
+    } catch (err) {
+      let message = "Oops! Something went wrong. Please try again.";
+
+      if (err.code === "auth/popup-closed-by-user") {
+        message = "Login was cancelled. Please try again.";
+      } else if (err.code === "auth/email-already-in-use") {
+        message = "The email is already register.";
+      } else if (err.code === "auth/network-request-failed") {
+        message =
+          "Network issue detected. Check your internet connection and retry.";
+      } else if (err.code === "auth/account-exists-with-different-credential") {
+        message =
+          "This email is already linked to another login method. Try signing in differently.";
+      }
+      toast.error(message);
+    } finally {
+      setBtnLoading(false);
+    }
+  };
+
   const handleShow = () => {
     setShow(!show);
   };
@@ -41,7 +88,7 @@ const Register = () => {
           <h1 className="text-2xl font-bold text-center">
             Create your account{" "}
           </h1>
-          <form>
+          <form onSubmit={handleCreateUser}>
             <fieldset className="fieldset">
               {/* name */}
               <label className="label">Name</label>
@@ -83,10 +130,15 @@ const Register = () => {
                   {show ? <BsEyeFill /> : <BsEyeSlash />}
                 </button>
               </div>
-
-              <button type="submit" className="btn gradient mt-4">
-                Register
-              </button>
+              {btnLoading ? (
+                <button type="submit" className="btn  mt-4">
+                  <span className="loading loading-spinner"></span> Register
+                </button>
+              ) : (
+                <button type="submit" className="btn  mt-4">
+                  Register
+                </button>
+              )}
             </fieldset>
           </form>
           <p>
