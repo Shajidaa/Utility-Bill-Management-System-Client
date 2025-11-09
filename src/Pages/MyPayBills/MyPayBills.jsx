@@ -1,31 +1,58 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useAxiosSecure from "../../Hooks/Axios/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
 
 const MyPayBills = () => {
   const { user } = useAuth();
   const axiosInstance = useAxiosSecure();
+  const editRef = useRef(null);
   const [myBills, setMyBills] = useState([]);
+  const instance = useAxiosSecure();
   useEffect(() => {
     axiosInstance.get(`/add-bills?email=${user?.email}`).then((data) => {
       setMyBills(data.data);
     });
   }, [axiosInstance, user]);
   console.log(myBills);
-
+  const handleEditBtn = () => {
+    editRef.current.showModal();
+  };
+  const handleUpdateBtn = async (e, _id) => {
+    e.preventDefault();
+    const form = e.target;
+    const updateBill = {
+      amount: form.amount.value,
+      address: form.address.value,
+      phone: form.phone.value,
+      date: form.date.value,
+    };
+    try {
+      const res = await instance.patch(`/add-bills/${_id}`, updateBill);
+      if (res.data.modifiedCount > 0) {
+        setMyBills((prev) =>
+          prev.map((bill) =>
+            bill._id === _id ? { ...bill, ...updateBill } : bill
+          )
+        );
+      }
+      editRef.current.close();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleRemove = () => {};
   return (
     <div>
       <h1 className="text-2xl font-semibold text-center my-5">
-        My Products:{myBills.length}
+        Total-Bill:{myBills.length}
       </h1>
       <div className="overflow-x-auto bg-white max-w-11/12 mx-auto ">
         <table className="table">
           <thead>
             <tr>
               <th>SL No</th>
-              <th> Image</th>
-              <th>Name</th>
+              <th>Image</th>
+              <th>Title</th>
               <th>Category</th>
               <th>Price</th>
 
@@ -49,11 +76,13 @@ const MyPayBills = () => {
                 </td>
                 <td>{bill.title}</td>
 
-                <td>{bill.select}</td>
+                <td>{bill.category}</td>
                 <td>৳{bill.amount}</td>
 
                 <td className="flex gap-3">
-                  <button className="btn btn-xs">Edit</button>
+                  <button onClick={handleEditBtn} className="btn btn-xs">
+                    Edit
+                  </button>
                   <button
                     onClick={() => handleRemove(`${bill._id}`)}
                     className="btn btn-error btn-xs"
@@ -68,6 +97,70 @@ const MyPayBills = () => {
             </tbody>
           ))}
         </table>
+        {myBills.map((bill) => (
+          <dialog
+            ref={editRef}
+            id="my_modal_5"
+            className="modal modal-bottom sm:modal-middle"
+          >
+            <div className="modal-box">
+              <h3 className="font-bold text-lg">Update the Bill</h3>
+              <form onSubmit={(e) => handleUpdateBtn(e, bill._id)}>
+                <fieldset className="fieldset">
+                  {/* name  */}
+                  <label className="label">Title</label>
+                  <input
+                    type="text"
+                    placeholder="tittle"
+                    name="title"
+                    defaultValue={bill.title}
+                    className="input"
+                    readOnly
+                  />
+
+                  {/*amount*/}
+                  <label className="label">Amount</label>
+                  <input
+                    type="text"
+                    name="amount"
+                    className="input"
+                    defaultValue={bill.amount}
+                    placeholder="type your amount"
+                  />
+
+                  <label className="label">Date</label>
+                  <input
+                    type="text"
+                    placeholder={bill.date}
+                    name="date"
+                    defaultValue={bill.date}
+                    className="input"
+                  />
+                  <label className="label">Phone</label>
+                  <input
+                    type="text"
+                    placeholder={bill.phone}
+                    name="phone"
+                    defaultValue={bill.phone}
+                    className="input"
+                  />
+                  <label className="label">Address</label>
+                  <input
+                    type="text"
+                    placeholder={bill.address}
+                    name="address"
+                    defaultValue={bill.address}
+                    className="input"
+                  />
+
+                  <button type="submit" className="btn gradient mt-4">
+                    Submit
+                  </button>
+                </fieldset>
+              </form>
+            </div>
+          </dialog>
+        ))}
       </div>
     </div>
   );

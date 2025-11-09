@@ -41,7 +41,9 @@ const BillsDetails = () => {
       address: address,
       phone: phone,
       title: title,
+      category: category,
     };
+    console.log(newBills);
     try {
       const { data } = await axiosSecure.post("/add-bills", newBills);
       if (data.insertedId) {
@@ -145,9 +147,17 @@ const BillsDetails = () => {
             />
             <label>Tittle</label>
             <input
-              type="email"
-              name="email"
+              type="text"
+              name="title"
               value={title}
+              readOnly
+              className="input input-bordered w-full"
+            />
+            <label>Category</label>
+            <input
+              type="text"
+              name="title"
+              value={category}
               readOnly
               className="input input-bordered w-full"
             />
