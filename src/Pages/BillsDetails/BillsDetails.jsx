@@ -3,9 +3,13 @@ import { FaMapMarkerAlt, FaMoneyBillWave } from "react-icons/fa";
 import { MdCategory, MdDateRange, MdDescription } from "react-icons/md";
 import useAuth from "../../Hooks/useAuth";
 import { useRef } from "react";
+
+import useAxiosSecure from "../../Hooks/Axios/useAxiosSecure";
+import { toast } from "react-toastify";
 const BillsDetails = () => {
   const details = useLoaderData();
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
   const billRef = useRef();
   const {
     title,
@@ -20,16 +24,14 @@ const BillsDetails = () => {
   const handleBillModel = () => {
     billRef.current.showModal();
   };
-  const handleBillSubmit = (e) => {
+  const handleBillSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const amount = form.amount.value;
-
     const address = form.address.value;
     const phone = form.phone.value;
-    // console.log({ name, email, amount, date, address, phone });
 
     const newBills = {
       username: name,
@@ -39,7 +41,15 @@ const BillsDetails = () => {
       address: address,
       phone: phone,
     };
-    console.log(newBills);
+    try {
+      const { data } = await axiosSecure.post("/add-bills", newBills);
+      if (data.insertedId) {
+        toast.success(`The bill has pay successfully`);
+      }
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const billDate = new Date(date);
