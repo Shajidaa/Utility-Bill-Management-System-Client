@@ -8,10 +8,12 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import BillsDetails from "../Pages/BillsDetails/BillsDetails";
 import MyPayBills from "../Pages/MyPayBills/MyPayBills";
 import Bills from "../Pages/Bills/Bills";
+import Spinner from "../Components/Shared/Spinner";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    hydrateFallbackElement: <Spinner></Spinner>,
     element: <MainLayout></MainLayout>,
     children: [
       {
