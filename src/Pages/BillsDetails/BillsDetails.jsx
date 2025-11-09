@@ -7,17 +7,43 @@ const BillsDetails = () => {
   const details = useLoaderData();
   const { user } = useAuth();
   const billRef = useRef();
+  const {
+    title,
+    category,
+    location,
+    description,
+    image,
+    amount,
+    date,
+    _id: billsId,
+  } = details;
   const handleBillModel = () => {
     billRef.current.showModal();
   };
   const handleBillSubmit = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const amount = form.amount.value;
+
+    const address = form.address.value;
+    const phone = form.phone.value;
+    // console.log({ name, email, amount, date, address, phone });
+
+    const newBills = {
+      username: name,
+      email: email,
+      amount: amount,
+      billsId: billsId,
+      address: address,
+      phone: phone,
+    };
+    console.log(newBills);
   };
 
-  const { title, category, location, description, image, amount, date } =
-    details;
-
   const billDate = new Date(date);
+
   const now = new Date();
   const isCurrentMonth =
     billDate.getMonth() === now.getMonth() &&
@@ -90,13 +116,15 @@ const BillsDetails = () => {
         <div className="modal-box">
           <h3 className="font-bold text-lg mb-3">Give your bill</h3>
           <form onSubmit={handleBillSubmit} className="space-y-3">
+            <label>UserName</label>
             <input
               type="text"
               name="name"
-              value={user?.displayName}
-              readOnly
+              placeholder="user name"
+              required
               className="input input-bordered w-full"
             />
+            <label>Email</label>
             <input
               type="email"
               name="email"
@@ -104,12 +132,37 @@ const BillsDetails = () => {
               readOnly
               className="input input-bordered w-full"
             />
+            <label>Amount</label>
             <input
               type="number"
-              name="bill"
-              placeholder="Enter your bill price"
-              required
+              name="amount"
+              defaultValue={amount}
+              readOnly
               className="input input-bordered w-full"
+            />
+            <label>billsId</label>
+            <input
+              type="text"
+              name="billsId"
+              defaultValue={billsId}
+              readOnly
+              className="input input-bordered w-full"
+            />
+            <label>Address</label>
+            <input
+              type="text"
+              name="address"
+              placeholder="Narayanganj"
+              className="input input-bordered w-full"
+              required
+            />
+            <label>Phone</label>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="+88 0123456789"
+              className="input input-bordered w-full"
+              required
             />
             <button type="submit" className="btn btn-neutral w-full">
               Pay Bill
