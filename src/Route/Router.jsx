@@ -32,7 +32,9 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/bills-details",
+        path: "/bills-details/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/bills-details/${params.id}`),
         element: (
           <PrivateRoute>
             <BillsDetails></BillsDetails>
