@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { BsEyeFill, BsEyeSlash } from "react-icons/bs";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthContext";
 import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
-  const { signInWithGoogle, user, setUser, logInFunc } =
-    useAuth();
+  const { signInWithGoogle, user, setUser, logInFunc } = useAuth();
   const [show, setShow] = useState(false);
+  const [btnLoading, setBtnLoading] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
   console.log(user);
   const handleGoogleSignIn = async () => {
     try {
@@ -32,7 +34,35 @@ const Login = () => {
       toast.error(message);
     }
   };
+  const logInSubmit = async (e) => {
+    e.preventDefault();
+    const from = e.target;
 
+    const email = from.email.value.trim();
+    const password = from.password.value;
+    setBtnLoading(true);
+    try {
+      const res = await logInFunc(email, password);
+      await setUser(res.user);
+      toast.success("Your login successfully!");
+      navigate(location.state ? location.state : "/");
+    } catch (err) {
+      let message =
+        "Unable to log in. Please check your credentials and try again.";
+
+      if (err.code === "auth/user-not-found") {
+        message = "No account found with this email.";
+      } else if (err.code === "auth/wrong-password") {
+        message = "Incorrect password. Please try again.";
+      } else if (err.code === "auth/too-many-requests") {
+        message = "Too many failed attempts. Please try again later.";
+      }
+
+      toast.error(message);
+    } finally {
+      setBtnLoading(false);
+    }
+  };
   const handleShow = () => {
     setShow(!show);
   };
@@ -44,7 +74,7 @@ const Login = () => {
           <h1 className="text-2xl font-bold text-center">
             Login your account{" "}
           </h1>
-          <form>
+          <form onSubmit={logInSubmit}>
             <fieldset className="fieldset">
               {/* email  */}
               <label className="label">Email</label>
@@ -53,6 +83,7 @@ const Login = () => {
                 name="email"
                 className="input"
                 placeholder="Email"
+                required
               />
               <div className="relative">
                 <label className="label">Password</label>
@@ -61,6 +92,7 @@ const Login = () => {
                   name="password"
                   className="input"
                   placeholder="Password"
+                  required
                 />
                 <button
                   type="button"
@@ -73,9 +105,16 @@ const Login = () => {
               <div>
                 <a className="link link-hover">Forgot password?</a>
               </div>
-              <button type="submit" className="btn gradient mt-4">
-                Login
-              </button>
+              {btnLoading ? (
+                <button type="submit" className="btn gradient mt-4">
+                  <span className="loading loading-spinner"></span>
+                  Login
+                </button>
+              ) : (
+                <button type="submit" className="btn gradient mt-4">
+                  Login
+                </button>
+              )}
             </fieldset>
           </form>
           <p>

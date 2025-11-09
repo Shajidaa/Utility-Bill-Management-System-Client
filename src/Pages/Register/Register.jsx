@@ -5,7 +5,8 @@ import useAuth from "../../Hooks/useAuth";
 import { toast } from "react-toastify";
 
 const Register = () => {
-  const { signInWithGoogle, setUser, createUserFunc } = useAuth();
+  const { signInWithGoogle, setUser, createUserFunc, updateProfileUser } =
+    useAuth();
   const [show, setShow] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
 
@@ -52,24 +53,25 @@ const Register = () => {
     try {
       const res = await createUserFunc(email, password);
       const user = res.user;
+      await updateProfileUser({ displayName, photoURL });
 
+      setUser({ ...user, displayName, photoURL });
       toast.success("Account create successfully");
-      console.log(user);
 
       navigate("/");
     } catch (err) {
-      let message = "Oops! Something went wrong. Please try again.";
+      let message = "We encountered an issue. Please give it another try.";
 
       if (err.code === "auth/popup-closed-by-user") {
-        message = "Login was cancelled. Please try again.";
+        message = "Login was cancelled. Please try again!";
       } else if (err.code === "auth/email-already-in-use") {
-        message = "The email is already register.";
+        message = "This email is already registered.";
       } else if (err.code === "auth/network-request-failed") {
         message =
-          "Network issue detected. Check your internet connection and retry.";
+          "Connection issue detected. Please check your internet and try again.";
       } else if (err.code === "auth/account-exists-with-different-credential") {
         message =
-          "This email is already linked to another login method. Try signing in differently.";
+          "This email is already registered.. Please try a different way to sign in.";
       }
       toast.error(message);
     } finally {
@@ -97,6 +99,7 @@ const Register = () => {
                 className="input"
                 name="name"
                 placeholder="Name"
+                required
               />
 
               <label className="label">Photo</label>
@@ -104,7 +107,8 @@ const Register = () => {
                 type="text"
                 className="input"
                 name="photo"
-                placeholder="https://upload.Zoo.jpg"
+                placeholder="https://i.ibb.co.com/3mMny9SF/hero.png"
+                required
               />
               {/* email  */}
               <label className="label">Email</label>
@@ -113,6 +117,7 @@ const Register = () => {
                 className="input"
                 name="email"
                 placeholder="Email"
+                required
               />
               <div className="relative">
                 <label className="label">Password</label>
@@ -120,7 +125,8 @@ const Register = () => {
                   type={show ? "text" : "password"}
                   name="password"
                   className="input"
-                  placeholder="Password"
+                  placeholder="******"
+                  required
                 />
                 <button
                   type="button"
