@@ -29,16 +29,10 @@ const Navbar = () => {
       <MyLinks to={"/"}>Home</MyLinks>
       <MyLinks to={"/bills"}>Bills</MyLinks>
 
-      {user ? (
+      {user && (
         <>
           <MyLinks to={"/add-bill"}>Add Bill</MyLinks>
           <MyLinks to={"/myPayBills"}>My Pay Bills</MyLinks>
-        </>
-      ) : (
-        <>
-          {" "}
-          <MyLinks to={"/login"}>Login</MyLinks>
-          <MyLinks to={"/register"}>Register</MyLinks>{" "}
         </>
       )}
     </>
@@ -47,13 +41,13 @@ const Navbar = () => {
     <div className="navbar bg-base-100 shadow-sm">
       <MyContainer className={"flex justify-center items-center"}>
         <div className="navbar-start">
-          <Link to={"/"} className="text-xl">
-            PayUp
+          <Link to={"/"} className="text-2xl text-gray-500 font-bold">
+            Pay<span className="text-green-500">Up</span>
           </Link>
         </div>
 
         <div className="navbar-end">
-          <div className="hidden lg:flex">
+          <div className="hidden md:flex">
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
 
@@ -73,16 +67,22 @@ const Navbar = () => {
               <Link
                 onClick={handleLogOutBtn}
                 to={"/login"}
-                className="btn  btn-sm md:btn-md "
+                className="btn primary-btn ml-2 mr-2 btn-sm md:btn-md "
               >
                 Log Out
               </Link>
             </div>
           ) : (
             <div className="flex justify-center items-center gap-2">
-              <Link to={"login"} className="btn  btn-sm md:btn-md ">
+              <Link to={"login"} className="btn primary-btn  btn-sm md:btn-md ">
                 Login
               </Link>
+              <MyLinks
+                className={"btn primary-btn text-sm! btn-sm md:btn-md "}
+                to={"/register"}
+              >
+                Register
+              </MyLinks>{" "}
             </div>
           )}
           <input
@@ -90,7 +90,7 @@ const Navbar = () => {
             type="checkbox"
             defaultChecked={localStorage.getItem("theme") === "dark"}
             checked={theme === "dark"}
-            className="toggle theme-controller "
+            className="toggle theme-controller  "
           />
         </div>
       </MyContainer>

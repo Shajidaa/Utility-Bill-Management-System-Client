@@ -2,6 +2,39 @@
 
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark;
+
 }
 
+:root {
+  --color-primary: #0F766E;
+}
+
+.primary-btn {
+
+  @apply bg-[#ade9d5] text-[#0F766E] border
+}
+
+/* [data-theme="dark"] {
+  --color-primary: #bbd42d;
+  /* Dark mode primary - a lighter teal */
+
+
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+
+
+
+
+
+
+
+/* 
+Primary Green: #10B981 (for the main logo and key buttons)
+
+Dark Green/Teal: #0F766E (for headings and secondary elements)
+
+Accent Gold: #F59E0B (use sparingly for warnings, premium features, or highlights)
+
+Text/Dark: #1F2937 (for primary text)
+
+Background: #FFFFFF (for a clean, airy feel) */
