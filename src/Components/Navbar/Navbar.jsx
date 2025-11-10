@@ -28,8 +28,19 @@ const Navbar = () => {
     <>
       <MyLinks to={"/"}>Home</MyLinks>
       <MyLinks to={"/bills"}>Bills</MyLinks>
-      <MyLinks to={"/add-bill"}>Add Bill</MyLinks>
-      <MyLinks to={"/myPayBills"}>My Pay Bills</MyLinks>
+
+      {user ? (
+        <>
+          <MyLinks to={"/add-bill"}>Add Bill</MyLinks>
+          <MyLinks to={"/myPayBills"}>My Pay Bills</MyLinks>
+        </>
+      ) : (
+        <>
+          {" "}
+          <MyLinks to={"/login"}>Login</MyLinks>
+          <MyLinks to={"/register"}>Register</MyLinks>{" "}
+        </>
+      )}
     </>
   );
   return (

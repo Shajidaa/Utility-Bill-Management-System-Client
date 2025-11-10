@@ -56,8 +56,9 @@ const MyPayBills = () => {
   };
   return (
     <div>
+      <title>My pay Bills | PayUp</title>
       <h1 className="text-2xl font-semibold text-center my-5">
-        Total-Bill:{myBills.length}
+        Bill-paid:{String(myBills.length).padStart(2, 0)}
       </h1>
       <div className="overflow-x-auto bg-white max-w-11/12 mx-auto ">
         <table className="table">

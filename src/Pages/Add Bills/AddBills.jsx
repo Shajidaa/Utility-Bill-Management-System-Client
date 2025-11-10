@@ -34,6 +34,7 @@ const AddBills = () => {
   };
   return (
     <div className="max-w-3xl mx-auto py-10 px-4">
+      <title>Add bills| PayUp</title>
       <Link to={"/bills"}>← Bills</Link>
 
       <h2 className="text-center text-4xl font-bold mt-4">
