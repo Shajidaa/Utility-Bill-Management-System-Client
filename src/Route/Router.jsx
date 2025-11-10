@@ -10,6 +10,7 @@ import MyPayBills from "../Pages/MyPayBills/MyPayBills";
 import Bills from "../Pages/Bills/Bills";
 import Spinner from "../Components/Shared/Spinner";
 import AddBills from "../Pages/Add Bills/AddBills";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
   },
 ]);
 

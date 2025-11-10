@@ -6,6 +6,7 @@ import { useRef } from "react";
 
 import useAxiosSecure from "../../Hooks/Axios/useAxiosSecure";
 import { toast } from "react-toastify";
+import ErrorPage from "../ErrorPage/ErrorPage";
 const BillsDetails = () => {
   const details = useLoaderData();
   const { user } = useAuth();
@@ -42,12 +43,14 @@ const BillsDetails = () => {
       phone: phone,
       title: title,
       category: category,
+      date: date,
     };
-    console.log(newBills);
+
     try {
       const { data } = await axiosSecure.post("/add-bills", newBills);
       if (data.insertedId) {
         toast.success(`The bill has pay successfully`);
+        billRef.current.close();
       }
       console.log(data);
     } catch (error) {
@@ -61,6 +64,10 @@ const BillsDetails = () => {
   const isCurrentMonth =
     billDate.getMonth() === now.getMonth() &&
     billDate.getFullYear() === now.getFullYear();
+
+  if (!billsId) {
+    return <ErrorPage></ErrorPage>;
+  }
 
   return (
     <>
@@ -163,6 +170,14 @@ const BillsDetails = () => {
                 readOnly
                 className="input input-bordered w-full"
               />
+              <label>Date</label>
+              <input
+                type="date"
+                name="date"
+                value={date}
+                readOnly
+                className="input input-bordered w-full"
+              />
               <label>Amount</label>
               <input
                 type="number"
@@ -201,7 +216,7 @@ const BillsDetails = () => {
             </form>
             <div className="modal-action">
               <form method="dialog">
-                <button className="btn">Close</button>
+                <button className="btn">Cancel</button>
               </form>
             </div>
           </div>

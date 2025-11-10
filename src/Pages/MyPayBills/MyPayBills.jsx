@@ -11,6 +11,7 @@ const MyPayBills = () => {
   useEffect(() => {
     axiosInstance.get(`/add-bills?email=${user?.email}`).then((data) => {
       setMyBills(data.data);
+      console.log(data);
     });
   }, [axiosInstance, user]);
 
@@ -54,6 +55,8 @@ const MyPayBills = () => {
       console.log(error);
     }
   };
+  console.log(myBills);
+
   return (
     <div>
       <title>My pay Bills | PayUp</title>
@@ -145,9 +148,9 @@ const MyPayBills = () => {
                   <label className="label">Date</label>
                   <input
                     type="text"
-                    placeholder={bill.date}
+                    placeholder={new Date(bill.date).toLocaleDateString()}
                     name="date"
-                    defaultValue={bill.date}
+                    defaultValue={new Date(bill.date).toLocaleDateString()}
                     className="input"
                   />
                   <label className="label">Phone</label>
