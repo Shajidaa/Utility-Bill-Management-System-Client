@@ -1,11 +1,12 @@
 import React from "react";
+import Banner from "../../Components/Banner/Banner";
 
 const Home = () => {
   return (
     <>
       {" "}
       <title>Home | PayUp</title>
-      This is home
+      <Banner></Banner>
     </>
   );
 };

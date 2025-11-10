@@ -20,21 +20,3 @@
 
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
-
-
-
-
-
-
-
-/* 
-Primary Green: #10B981 (for the main logo and key buttons)
-
-Dark Green/Teal: #0F766E (for headings and secondary elements)
-
-Accent Gold: #F59E0B (use sparingly for warnings, premium features, or highlights)
-
-Text/Dark: #1F2937 (for primary text)
-
-Background: #FFFFFF (for a clean, airy feel) */
