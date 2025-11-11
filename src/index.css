@@ -21,12 +21,12 @@
   @apply btn text-white bg-linear-to-l from-[#1c7bf6] via-[#10bff7] to-[#35cff4] border-none hover:opacity-90 hover:scale-105 transition-all duration-300;
 }
 
-/* .primary-btn {
-  background-image: linear-gradient(to left, #1caef6, #0db7f7, #10bff7, #22c7f6, #35cff4);
-} */
+
 
 /* [data-theme="dark"] {
   --color-primary: #bbd42d;
+}
+  
   /* Dark mode primary - a lighter teal */
 
 
