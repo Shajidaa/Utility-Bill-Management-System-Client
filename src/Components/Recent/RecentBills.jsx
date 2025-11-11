@@ -24,7 +24,7 @@ const RecentBills = () => {
 
   return (
     <MyContainer>
-      <h1>card</h1>
+      <h1>Bill Payments</h1>
       <div className="grid grid-cols-2 md:grid-cols-4">
         {category.map((c) => (
           <button
