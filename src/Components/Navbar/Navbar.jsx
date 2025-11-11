@@ -76,11 +76,16 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex justify-center items-center gap-2">
-              <Link to={"login"} className="btn primary-btn  btn-sm md:btn-md ">
+              <Link
+                to={"login"}
+                className="btn primary-btn hover:rounded-2xl! btn-sm md:btn-md "
+              >
                 <BiLogIn /> Login
               </Link>
               <MyLinks
-                className={"btn primary-btn text-sm! btn-sm md:btn-md "}
+                className={
+                  "btn primary-btn text-sm! hover:rounded-2xl! btn-sm md:btn-md "
+                }
                 to={"/register"}
               >
                 <div className="size-5">

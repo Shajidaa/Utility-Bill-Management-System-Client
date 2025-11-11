@@ -111,7 +111,7 @@ const MyPayBills = () => {
 
                 <td className="flex gap-3">
                   <button onClick={handleEditBtn} className="btn btn-xs">
-                    Edit
+                    Update
                   </button>
                   <button
                     onClick={() => handleRemove(`${bill._id}`)}
@@ -119,14 +119,12 @@ const MyPayBills = () => {
                   >
                     Delete
                   </button>
-                  <button className="btn btn-xs text-green-500">
-                    Download report
-                  </button>
                 </td>
               </tr>
             </tbody>
           ))}
         </table>
+        <button className="btn btn-xs text-green-500">Download report</button>
         {myBills.map((bill) => (
           <dialog
             ref={editRef}
