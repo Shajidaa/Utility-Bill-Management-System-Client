@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import useAuth from "../useAuth";
 const axiosInstance = axios.create({
-  baseURL: `https://utility-bill-management-system-server-3mi8k3xuv.vercel.app/`,
+  baseURL: `https://utility-bill-management-system-serv.vercel.app/`,
 });
 const useAxiosSecure = () => {
   const { user } = useAuth();
