@@ -11,7 +11,6 @@ const MyPayBills = () => {
   useEffect(() => {
     axiosInstance.get(`/add-bills?email=${user?.email}`).then((data) => {
       setMyBills(data.data);
-      console.log(data);
     });
   }, [axiosInstance, user]);
 
@@ -55,14 +54,28 @@ const MyPayBills = () => {
       console.log(error);
     }
   };
-  console.log(myBills);
+
+  const totalAmount = myBills.reduce(
+    (sum, bill) => sum + parseInt(bill.amount),
+    0
+  );
 
   return (
     <div>
       <title>My pay Bills | PayUp</title>
-      <h1 className="text-2xl font-semibold text-center my-5">
-        Bill-paid:{String(myBills.length).padStart(2, 0)}
-      </h1>
+      <h1 className="text-2xl font-semibold text-center my-5">My Pay Bills</h1>
+      <div>
+        <div>
+          <h1 className="text-xl font-semibold text-center my-5">
+            Bill-paid:{String(myBills.length).padStart(2, 0)}
+          </h1>
+        </div>
+        <div>
+          <h1 className="text-xl font-semibold text-center my-5">
+            TotalPaid: {totalAmount}
+          </h1>
+        </div>
+      </div>
       <div className="overflow-x-auto bg-white max-w-11/12 mx-auto ">
         <table className="table">
           <thead>

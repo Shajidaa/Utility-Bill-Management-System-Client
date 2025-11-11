@@ -85,7 +85,7 @@ const BillsDetails = () => {
 
           {/* Right Side Info */}
           <div className="p-6 space-y-4">
-            <h1 className="text-2xl font-bold text-green-700 dark:text-green-300">
+            <h1 className=" text-4xl font-bold my-15 text-secondary">
               {title}
             </h1>
 
@@ -123,7 +123,7 @@ const BillsDetails = () => {
                 disabled={!isCurrentMonth}
                 className={`btn btn-md w-full text-white border-none ${
                   isCurrentMonth
-                    ? "bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600"
+                    ? "primary-btn"
                     : "bg-gray-400 dark:bg-gray-600 cursor-not-allowed"
                 }`}
               >

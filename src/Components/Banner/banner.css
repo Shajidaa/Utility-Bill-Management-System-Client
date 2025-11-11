@@ -32,7 +32,7 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    color: #16a34a;
+    color: #1098e6;
 }
 
 .autoplay-progress svg {
@@ -55,7 +55,7 @@
 /* Style navigation arrows */
 .swiper-button-next,
 .swiper-button-prev {
-    color: #16a34a;
+    color: #1098e6;
     /* green */
 
     padding: 12px;
@@ -79,7 +79,7 @@
 
 /* Active bullet */
 .swiper-pagination-bullet-active {
-    background: #16a34a;
+    background: #1098e6;
 
 
 }

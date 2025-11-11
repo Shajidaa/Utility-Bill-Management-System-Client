@@ -24,13 +24,17 @@ const RecentBills = () => {
 
   return (
     <MyContainer>
-      <h1>Bill Payments</h1>
+      <h1 className="text-center text-4xl font-bold my-15 text-secondary">
+        Bill Payments
+      </h1>
       <div className="grid grid-cols-2 md:grid-cols-4">
         {category.map((c) => (
           <button
             onClick={() => setSelectedCategory(c)}
-            className={`btn ${
-              selectedCategory === c ? "btn-primary" : "btn-outline"
+            className={`w-25 h-25 border rounded-2xl ${
+              selectedCategory === c
+                ? "bg-linear-to-l from-[#1c7bf6] via-[#10bff7] to-[#35cff4]"
+                : "btn-outline"
             }`}
           >
             {c}
@@ -40,8 +44,8 @@ const RecentBills = () => {
 
       {selectedCategory ? (
         <>
-          <h2 className="text-xl font-semibold mb-4">
-            Bills in "{selectedCategory}"
+          <h2 className="text-center text-4xl font-bold my-15 text-secondary">
+            Bills in : {selectedCategory}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {filteredBills.map((bill) => (
@@ -51,7 +55,9 @@ const RecentBills = () => {
         </>
       ) : (
         <>
-          <h1 className="text-center text-4xl font-bold my-10">Recent Bills</h1>
+          <h1 className="text-center text-4xl font-bold my-15 text-secondary">
+            Recent Bills
+          </h1>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {recentBills.map((bill) => (
               <Card bill={bill}></Card>

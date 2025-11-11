@@ -4,7 +4,9 @@ import MyContainer from "../Shared/MyContainer/MyContainer";
 import { Link, useNavigate } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 import { toast } from "react-toastify";
-
+import { BiLogIn } from "react-icons/bi";
+import signUp from "../.././assets/register.png";
+import { TbLogout2 } from "react-icons/tb";
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -42,21 +44,21 @@ const Navbar = () => {
       <MyContainer className={"flex justify-center items-center"}>
         <div className="navbar-start">
           <Link to={"/"} className="text-2xl text-gray-500 font-bold">
-            Pay<span className="text-green-500">Up</span>
+            Pay<span className="text-blue-800">Up</span>
           </Link>
         </div>
 
-        <div className="navbar-end">
-          <div className="hidden md:flex">
-            <ul className="menu menu-horizontal px-1">{links}</ul>
+        <div className="navbar-end ">
+          <div className="hidden lg:flex">
+            <ul className="">{links}</ul>
           </div>
 
           {user ? (
-            <div className="flex justify-center items-center gap-2">
+            <div className="  flex justify-center items-center gap-2">
               {" "}
               <div
                 data-tip={user.displayName}
-                className="md:size-12 size-8 tooltip tooltip-bottom border-2 border-[#02471f] rounded-full "
+                className="md:size-12 size-8 tooltip tooltip-bottom border-2 border-[#021247] rounded-full "
               >
                 <img
                   className="w-full bg-cover h-full rounded-full  "
@@ -67,20 +69,23 @@ const Navbar = () => {
               <Link
                 onClick={handleLogOutBtn}
                 to={"/login"}
-                className="btn primary-btn ml-2 mr-2 btn-sm md:btn-md "
+                className="btn text-white hover:rounded-2xl hover:border bg-red-700 ml-2 mr-2 btn-sm md:btn-md "
               >
-                Log Out
+                Log Out <TbLogout2 />
               </Link>
             </div>
           ) : (
             <div className="flex justify-center items-center gap-2">
               <Link to={"login"} className="btn primary-btn  btn-sm md:btn-md ">
-                Login
+                <BiLogIn /> Login
               </Link>
               <MyLinks
                 className={"btn primary-btn text-sm! btn-sm md:btn-md "}
                 to={"/register"}
               >
+                <div className="size-5">
+                  <img src={signUp} alt="" />{" "}
+                </div>{" "}
                 Register
               </MyLinks>{" "}
             </div>
@@ -90,12 +95,12 @@ const Navbar = () => {
             type="checkbox"
             defaultChecked={localStorage.getItem("theme") === "dark"}
             checked={theme === "dark"}
-            className="toggle theme-controller  "
+            className="toggle theme-controller "
           />
         </div>
       </MyContainer>
 
-      <div className="shadow-sm bg-base-100/30 backdrop-blur-md md:hidden fixed bottom-0 left-0 w-full z-50">
+      <div className="shadow-sm bg-base-100/30 backdrop-blur-md lg:hidden fixed bottom-0 left-0 w-full z-50">
         <div className=" flex justify-center items-center">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>

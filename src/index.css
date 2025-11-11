@@ -13,13 +13,17 @@
 
 
 :root {
-  --color-primary: #0F766E;
+  --color-primary: #1098e6;
+  --color-secondary: #000731;
 }
 
 .primary-btn {
-
-  @apply bg-[#ade9d5] text-[#0F766E] border
+  @apply btn text-white bg-linear-to-l from-[#1c7bf6] via-[#10bff7] to-[#35cff4] border-none hover:opacity-90 hover:scale-105 transition-all duration-300;
 }
+
+/* .primary-btn {
+  background-image: linear-gradient(to left, #1caef6, #0db7f7, #10bff7, #22c7f6, #35cff4);
+} */
 
 /* [data-theme="dark"] {
   --color-primary: #bbd42d;

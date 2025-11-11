@@ -2,6 +2,7 @@ import React from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { MdCategory, MdDateRange } from "react-icons/md";
 import { Link } from "react-router";
+import { IoMdArrowRoundForward } from "react-icons/io";
 
 const Card = ({ bill }) => {
   const { title, category, location, date, image, _id } = bill;
@@ -10,7 +11,7 @@ const Card = ({ bill }) => {
     <div
       className="card bg-base-100 shadow-md 
     dark:shadow-lg hover:shadow-xl transition-all 
-    duration-300 border border-green-200  dark:border-green-700 rounded-2xl"
+    duration-300 hover:scale-105  rounded-2xl"
     >
       <figure>
         <img
@@ -21,31 +22,29 @@ const Card = ({ bill }) => {
       </figure>
 
       <div className="card-body text-left p-5">
-        <h2 className="card-title text-lg font-semibold text-green-700 dark:text-green-300">
-          {title}
-        </h2>
+        <h2 className="card-title text-lg font-bold text-sky-800 ">{title}</h2>
 
         <div className="space-y-1 text-sm">
           <p className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-            <MdCategory className="text-green-500 dark:text-green-400" />
+            <MdCategory className="text-primary" />
             <span className="font-medium">{category}</span>
           </p>
           <p className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-            <FaMapMarkerAlt className="text-green-500 dark:text-green-400" />
+            <FaMapMarkerAlt className="text-primary" />
             {location}
           </p>
           <p className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-            <MdDateRange className="text-green-500 dark:text-green-400" />
+            <MdDateRange className="text-primary" />
             {new Date(date).toLocaleDateString()}
           </p>
         </div>
 
-        <div className="w-full   mt-4">
+        <div className="w-full mt-4">
           <Link
             to={`/bills-details/${_id}`}
-            className="btn  w-full bg-green-600 hover:bg-green-700 text-white border-none dark:bg-green-500 dark:hover:bg-green-600"
+            className="btn w-full! primary-btn  text-white border-none "
           >
-            See Details
+            See Details <IoMdArrowRoundForward />
           </Link>
         </div>
       </div>
