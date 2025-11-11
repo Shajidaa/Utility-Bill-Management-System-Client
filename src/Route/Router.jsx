@@ -46,7 +46,9 @@ const router = createBrowserRouter([
       {
         path: "/bills-details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/bills-details/${params.id}`),
+          fetch(
+            `https://utility-bill-management-system-serv.vercel.app/bills-details/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <BillsDetails></BillsDetails>
