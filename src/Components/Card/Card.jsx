@@ -7,7 +7,11 @@ const Card = ({ bill }) => {
   const { title, category, location, date, image, _id } = bill;
 
   return (
-    <div className="card bg-base-100 shadow-md dark:shadow-lg hover:shadow-xl transition-all duration-300 border border-green-200 dark:border-green-700 rounded-2xl">
+    <div
+      className="card bg-base-100 shadow-md 
+    dark:shadow-lg hover:shadow-xl transition-all 
+    duration-300 border border-green-200  dark:border-green-700 rounded-2xl"
+    >
       <figure>
         <img
           src={image}
