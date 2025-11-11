@@ -95,6 +95,7 @@ const Navbar = () => {
               </MyLinks>{" "}
             </div>
           )}
+
           <input
             onChange={(e) => handleThemeToggle(e.target.checked)}
             type="checkbox"

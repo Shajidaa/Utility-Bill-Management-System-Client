@@ -28,8 +28,9 @@ const RecentBills = () => {
         Bill Payments
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-4">
-        {category.map((c) => (
+        {category.map((c, i) => (
           <button
+            key={i}
             onClick={() => setSelectedCategory(c)}
             className={`w-25 h-25 border rounded-2xl ${
               selectedCategory === c
@@ -48,8 +49,8 @@ const RecentBills = () => {
             Bills in : {selectedCategory}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filteredBills.map((bill) => (
-              <Card bill={bill}></Card>
+            {filteredBills.map((bill, index) => (
+              <Card key={index} bill={bill}></Card>
             ))}
           </div>
         </>
@@ -59,8 +60,8 @@ const RecentBills = () => {
             Recent Bills
           </h1>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {recentBills.map((bill) => (
-              <Card bill={bill}></Card>
+            {recentBills.map((bill, index) => (
+              <Card key={index} bill={bill}></Card>
             ))}
           </div>
         </>
