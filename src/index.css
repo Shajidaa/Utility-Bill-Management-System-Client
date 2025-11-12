@@ -17,6 +17,14 @@
   --color-secondary: #000731;
 }
 
+.title {
+  @apply text-4xl font-bold
+}
+
+.sub-title {
+  @apply text-lg font-normal text-gray-500 my-2
+}
+
 .primary-btn {
   @apply btn text-white bg-linear-to-l from-[#1c7bf6] via-[#10bff7] to-[#35cff4] border-none hover:opacity-90 hover:scale-105 transition-all duration-300;
 }
