@@ -3,15 +3,16 @@ import { FaMapMarkerAlt, FaMoneyBillWave } from "react-icons/fa";
 import { MdCategory, MdDateRange, MdDescription } from "react-icons/md";
 import useAuth from "../../Hooks/useAuth";
 import { useRef } from "react";
-
 import useAxiosSecure from "../../Hooks/Axios/useAxiosSecure";
 import { toast } from "react-toastify";
 import ErrorPage from "../ErrorPage/ErrorPage";
+
 const BillsDetails = () => {
   const details = useLoaderData();
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const billRef = useRef();
+
   const {
     title,
     category,
@@ -22,9 +23,11 @@ const BillsDetails = () => {
     date,
     _id: billsId,
   } = details;
+
   const handleBillModel = () => {
     billRef.current.showModal();
   };
+
   const handleBillSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -36,46 +39,45 @@ const BillsDetails = () => {
 
     const newBills = {
       username: name,
-      email: email,
-      amount: amount,
-      billsId: billsId,
-      address: address,
-      phone: phone,
-      title: title,
-      category: category,
-      date: date,
+      email,
+      amount,
+      billsId,
+      address,
+      phone,
+      title,
+      category,
+      date,
     };
 
     try {
       const { data } = await axiosSecure.post("/add-bills", newBills);
       if (data.insertedId) {
-        toast.success(`The bill has pay successfully`);
+        toast.success("✅ Your bill payment was successful!");
         billRef.current.close();
       }
-      console.log(data);
     } catch (error) {
+      toast.error("❌ Payment failed. Please try again.");
       console.log(error);
     }
   };
 
   const billDate = new Date(date);
-
   const now = new Date();
   const isCurrentMonth =
     billDate.getMonth() === now.getMonth() &&
     billDate.getFullYear() === now.getFullYear();
 
   if (!billsId) {
-    return <ErrorPage></ErrorPage>;
+    return <ErrorPage />;
   }
 
   return (
     <>
       <title>{`${title} | Bill Details`}</title>
-      <div className="min-h-screen bg-base-100 dark:bg-gray-900 p-6 flex items-center justify-center">
-        <div className="grid md:grid-cols-2 gap-8 w-full max-w-5xl bg-base-200 dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-green-200 dark:border-green-700">
+      <div className="min-h-screen bg-white dark:bg-gray-900 p-6 flex items-center justify-center">
+        <div className="grid md:grid-cols-2 gap-8 w-full max-w-5xl bg-slate-50 dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 transition duration-300">
           {/* Left Side Image */}
-          <div className="flex items-center justify-center bg-base-300 dark:bg-gray-700">
+          <div className="flex items-center justify-center bg-slate-100 dark:bg-gray-700">
             <img
               src={image}
               alt={title}
@@ -85,33 +87,34 @@ const BillsDetails = () => {
 
           {/* Right Side Info */}
           <div className="p-6 space-y-4">
-            <h1 className=" text-4xl font-bold my-15 text-secondary">
-              {title}
-            </h1>
+            <h1 className="text-4xl title font-bold  mb-2">{title}</h1>
 
             <div className="space-y-2 text-gray-700 dark:text-gray-300">
               <p className="flex items-center gap-2">
-                <MdCategory className="text-green-500 dark:text-green-400" />
+                <MdCategory className="text-sky-600 dark:text-sky-400" />
                 <span className="font-medium">{category}</span>
               </p>
 
               <p className="flex items-center gap-2">
-                <FaMapMarkerAlt className="text-green-500 dark:text-green-400" />
+                <FaMapMarkerAlt className="text-sky-600 dark:text-sky-400" />
                 {location}
               </p>
 
               <p className="flex items-center gap-2">
-                <MdDescription className="text-green-500 dark:text-green-400" />
+                <MdDescription
+                  size={20}
+                  className="text-sky-600 dark:text-sky-400"
+                />
                 {description}
               </p>
 
               <p className="flex items-center gap-2">
-                <FaMoneyBillWave className="text-green-500 dark:text-green-400" />
+                <FaMoneyBillWave className="text-sky-600 dark:text-sky-400" />
                 Amount: <span className="font-semibold">৳{amount}</span>
               </p>
 
               <p className="flex items-center gap-2">
-                <MdDateRange className="text-green-500 dark:text-green-400" />
+                <MdDateRange className="text-sky-600 dark:text-sky-400" />
                 {new Date(date).toLocaleDateString()}
               </p>
             </div>
@@ -121,7 +124,7 @@ const BillsDetails = () => {
               <button
                 onClick={handleBillModel}
                 disabled={!isCurrentMonth}
-                className={`btn btn-md w-full text-white border-none ${
+                className={`btn btn-md w-full! text-white border-none transition duration-200 ${
                   isCurrentMonth
                     ? "primary-btn"
                     : "bg-gray-400 dark:bg-gray-600 cursor-not-allowed"
@@ -134,15 +137,19 @@ const BillsDetails = () => {
             </div>
           </div>
         </div>
+
+        {/* Bill Modal */}
         <dialog ref={billRef} className="modal modal-bottom sm:modal-middle">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg mb-3">Give your bill</h3>
+          <div className="modal-box bg-white dark:bg-gray-800">
+            <h3 className="font-bold text-lg mb-3 text-sky-600 dark:text-sky-400">
+              Complete Your Payment
+            </h3>
             <form onSubmit={handleBillSubmit} className="space-y-3">
-              <label>UserName</label>
+              <label>User Name</label>
               <input
                 type="text"
                 name="name"
-                placeholder="user name"
+                placeholder="User Name"
                 required
                 className="input input-bordered w-full"
               />
@@ -154,7 +161,7 @@ const BillsDetails = () => {
                 readOnly
                 className="input input-bordered w-full"
               />
-              <label>Tittle</label>
+              <label>Title</label>
               <input
                 type="text"
                 name="title"
@@ -165,7 +172,7 @@ const BillsDetails = () => {
               <label>Category</label>
               <input
                 type="text"
-                name="title"
+                name="category"
                 value={category}
                 readOnly
                 className="input input-bordered w-full"
@@ -186,7 +193,7 @@ const BillsDetails = () => {
                 readOnly
                 className="input input-bordered w-full"
               />
-              <label>billsId</label>
+              <label>Bill ID</label>
               <input
                 type="text"
                 name="billsId"
@@ -210,7 +217,10 @@ const BillsDetails = () => {
                 className="input input-bordered w-full"
                 required
               />
-              <button type="submit" className="btn btn-neutral w-full">
+              <button
+                type="submit"
+                className="btn primary-btn text-white w-full"
+              >
                 Pay Bill
               </button>
             </form>
