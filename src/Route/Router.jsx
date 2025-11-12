@@ -11,6 +11,7 @@ import Bills from "../Pages/Bills/Bills";
 import Spinner from "../Components/Shared/Spinner";
 import AddBills from "../Pages/Add Bills/AddBills";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import MyProfile from "../Pages/MyProfile/MyProfile";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyPayBills></MyPayBills>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myProfile",
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
           </PrivateRoute>
         ),
       },

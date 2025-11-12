@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const Register = () => {
-  const { signInWithGoogle, setUser, createUserFunc, updateProfileUser } =
+  const { signInWithGoogle, user, setUser, createUserFunc, updateProfileUser } =
     useAuth();
   const [show, setShow] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
@@ -61,12 +61,14 @@ const Register = () => {
       else if (err.code === "auth/network-request-failed")
         message = "Connection issue. Try again.";
       toast.error(message);
+      return;
     } finally {
       setBtnLoading(false);
     }
   };
 
   const handleShow = () => setShow(!show);
+  console.log(user);
 
   return (
     <>
@@ -75,7 +77,6 @@ const Register = () => {
         className="flex flex-col-reverse lg:flex-row justify-center items-center
        gap-5 py-7 md:py-12 min-h-screen bg-sky-50 dark:bg-gray-900 transition-colors"
       >
-        {/* Form Card */}
         <div className="flex lg:w-1/2 w-full justify-center items-center">
           <div
             className="card w-full max-w-sm border
@@ -140,7 +141,7 @@ const Register = () => {
                   <button
                     type="button"
                     onClick={handleShow}
-                    className="absolute top-8 right-3 text-gray-500 dark:text-gray-300"
+                    className="absolute top-8 z-10 right-3 text-gray-500 dark:text-gray-300"
                   >
                     {show ? <BsEyeFill size={20} /> : <BsEyeSlash size={20} />}
                   </button>

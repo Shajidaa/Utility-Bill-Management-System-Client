@@ -112,7 +112,7 @@ const Login = () => {
                     <button
                       type="button"
                       onClick={handleShow}
-                      className="absolute top-8 right-3 text-gray-500 dark:text-gray-300"
+                      className="absolute top-8 z-10 right-3 text-gray-500 dark:text-gray-300"
                     >
                       {show ? (
                         <BsEyeFill size={20} />
