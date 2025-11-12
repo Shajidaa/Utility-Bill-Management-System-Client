@@ -5,7 +5,7 @@ const axiosInstance = axios.create({
   baseURL: `https://utility-bill-management-system-serv.vercel.app/`,
 });
 const useAxiosSecure = () => {
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
   //request interceptor
   useEffect(() => {
     const requestInterceptor = axiosInstance.interceptors.request.use(
@@ -14,10 +14,23 @@ const useAxiosSecure = () => {
         return config;
       }
     );
+    //response interceptor
+    const responseInterceptor = axiosInstance.interceptors.response.use(
+      (res) => {
+        return res;
+      },
+      (err) => {
+        const status = err.status;
+        if (status === 401 || status === 403) {
+          logOut().then(() => {});
+        }
+      }
+    );
     return () => {
       axiosInstance.interceptors.request.eject(requestInterceptor);
+      axiosInstance.interceptors.response.eject(responseInterceptor);
     };
-  }, [user]);
+  }, [user, logOut]);
   return axiosInstance;
 };
 
