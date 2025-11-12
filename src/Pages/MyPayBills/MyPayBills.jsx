@@ -133,7 +133,7 @@ const MyPayBills = () => {
         My Pay Bills
       </h1>
 
-      <div className="flex flex-col md:flex-row justify-around items-center gap-4 mb-6">
+      <div className="flex flex-col  md:flex-row justify-around items-center gap-4 mb-6">
         <div className="bg-blue-100 dark:bg-gray-700 p-4 rounded-lg w-full md:w-1/3 text-center">
           <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-200">
             Bills Paid
@@ -152,7 +152,7 @@ const MyPayBills = () => {
         </div>
       </div>
 
-      <div className="overflow-x-auto   bg-white dark:bg-gray-800 shadow-md rounded-lg">
+      <div className="overflow-x-auto min-h-dvh  bg-white dark:bg-gray-800 shadow-md rounded-lg">
         <table id="my-table" className="table w-full">
           <thead>
             <tr className="bg-sky-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">

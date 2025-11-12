@@ -6,6 +6,7 @@ import { useRef } from "react";
 import useAxiosSecure from "../../Hooks/Axios/useAxiosSecure";
 import { toast } from "react-toastify";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import ErrorCard from "../ErrorCard/ErrorCard";
 
 const BillsDetails = () => {
   const details = useLoaderData();
@@ -68,7 +69,7 @@ const BillsDetails = () => {
     billDate.getFullYear() === now.getFullYear();
 
   if (!billsId) {
-    return <ErrorPage />;
+    return <ErrorCard />;
   }
 
   return (

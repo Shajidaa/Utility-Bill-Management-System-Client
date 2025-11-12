@@ -32,7 +32,7 @@ const Bills = () => {
           View, track, and manage all your utility bills easily with PayUp.
         </p>
       </div>
-      <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 py-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {bills.map((bill, index) => (
           <Card key={index} bill={bill}></Card>
         ))}
