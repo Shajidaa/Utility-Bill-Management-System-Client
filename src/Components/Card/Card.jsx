@@ -11,7 +11,7 @@ const Card = ({ bill }) => {
     <div
       className="card bg-base-100 shadow-md 
     dark:shadow-lg hover:shadow-xl transition-all 
-    duration-300 hover:scale-105  rounded-2xl"
+    duration-300 hover:scale-105  rounded-2xl  dark:bg-gray-800"
     >
       <figure>
         <img

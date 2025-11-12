@@ -52,11 +52,11 @@ const BillsDetails = () => {
     try {
       const { data } = await axiosSecure.post("/add-bills", newBills);
       if (data.insertedId) {
-        toast.success("✅ Your bill payment was successful!");
+        toast.success(" Your bill payment was successful!");
         billRef.current.close();
       }
     } catch (error) {
-      toast.error("❌ Payment failed. Please try again.");
+      toast.error(" Payment failed. Please try again.");
       console.log(error);
     }
   };
@@ -86,8 +86,10 @@ const BillsDetails = () => {
           </div>
 
           {/* Right Side Info */}
-          <div className="p-6 space-y-4">
-            <h1 className="text-4xl title font-bold  mb-2">{title}</h1>
+          <div className="md:p-6 p-3 space-y-4">
+            <h1 className="md:text-4xl text-xl font-medium title md:font-bold  mb-2">
+              {title}
+            </h1>
 
             <div className="space-y-2 text-gray-700 dark:text-gray-300">
               <p className="flex items-center gap-2">
@@ -101,10 +103,8 @@ const BillsDetails = () => {
               </p>
 
               <p className="flex items-center gap-2">
-                <MdDescription
-                  size={20}
-                  className="text-sky-600 dark:text-sky-400"
-                />
+                <MdDescription className="text-sky-600 size-10 dark:text-sky-400" />
+
                 {description}
               </p>
 

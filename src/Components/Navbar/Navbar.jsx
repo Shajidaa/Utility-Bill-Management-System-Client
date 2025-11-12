@@ -35,7 +35,7 @@ const Navbar = () => {
       {user && (
         <>
           <MyLinks to={"/add-bill"}>Add Bill</MyLinks>
-          <MyLinks to={"/myPayBills"}>My Pay Bills</MyLinks>
+          <MyLinks to={"/myPayBills"}>Pay Bills</MyLinks>
         </>
       )}
     </>
@@ -49,13 +49,13 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="navbar-end ">
+        <div className="md:navbar-end navbar-center">
           <div className="hidden lg:flex">
             <ul className="">{links}</ul>
           </div>
 
           {user ? (
-            <div className="  flex justify-center items-center gap-2">
+            <div className="  flex justify-center items-center ">
               {" "}
               <div
                 data-tip={user.displayName}
@@ -76,7 +76,7 @@ const Navbar = () => {
               </Link>
             </div>
           ) : (
-            <div className="flex justify-center items-center gap-2">
+            <div className="flex justify-center items-center">
               <Link
                 to={"login"}
                 className="btn primary-btn hover:rounded-2xl! btn-sm md:btn-md "
@@ -98,7 +98,6 @@ const Navbar = () => {
           )}
 
           <label className="swap swap-rotate">
-            {/* this hidden checkbox controls the state */}
             <input
               onChange={(e) => handleThemeToggle(e.target.checked)}
               type="checkbox"
