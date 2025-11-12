@@ -4,7 +4,7 @@ import { FaFacebook, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="px-4 divide-y mt-5 bg-slate-50 text-gray-700 dark:bg-gray-950 dark:text-gray-300">
+    <footer className="px-4 divide-y pt-5 bg-slate-50 text-gray-700 dark:bg-gray-950 dark:text-gray-300">
       <MyContainer>
         <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
           {/* Brand */}
