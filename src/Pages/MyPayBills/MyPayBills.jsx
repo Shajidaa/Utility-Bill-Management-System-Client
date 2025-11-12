@@ -2,11 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import useAxiosSecure from "../../Hooks/Axios/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
 import { FaDownload, FaEdit, FaTrash } from "react-icons/fa";
+import jsPDF from "jspdf";
+import { autoTable } from "jspdf-autotable";
 
 const MyPayBills = () => {
   const { user } = useAuth();
   const axiosInstance = useAxiosSecure();
   const editRef = useRef(null);
+  const rowRef = useRef(null);
   const [myBills, setMyBills] = useState([]);
   const [selectedBill, setSelectedBill] = useState(null);
 
@@ -18,9 +21,45 @@ const MyPayBills = () => {
     }
   }, [axiosInstance, user]);
 
+  useEffect(() => {
+    if (selectedBill && editRef.current) {
+      editRef.current.showModal();
+    }
+  }, [selectedBill]);
+
   const handleEditBtn = (bill) => {
     setSelectedBill(bill);
-    editRef.current.showModal();
+  };
+
+  const handleDownloadPdf = () => {
+    const doc = new jsPDF();
+
+    doc.text("PayUp - Bills Report", 10, 10);
+    const tableColumn = ["SL No", "Title", "Date", "Category", "Price"];
+    const tableRows = myBills.map((bill, index) => [
+      index + 1,
+      bill.title,
+      bill.date,
+      bill.category,
+      `৳${Number(bill.amount)}`,
+    ]);
+    autoTable(doc, {
+      head: [tableColumn],
+      body: tableRows,
+
+      theme: "grid",
+
+      styles: { align: "center" },
+    });
+    const finalY = doc.lastAutoTable.finalY || 20;
+    const totalAmount = myBills.reduce(
+      (sum, bill) => sum + parseInt(bill.amount),
+      0
+    );
+    doc.setFontSize(12);
+    doc.text(`Total Bills Paid: ${myBills.length}`, 14, finalY + 10);
+    doc.text(`Total Bills Amount: ৳${totalAmount}`, 14, finalY + 20);
+    doc.save("PayUp_Bills.pdf");
   };
 
   const handleUpdateBtn = async (e, _id) => {
@@ -41,6 +80,7 @@ const MyPayBills = () => {
           )
         );
       }
+      e.target.reset();
       editRef.current.close();
     } catch (error) {
       console.error(error);
@@ -90,18 +130,19 @@ const MyPayBills = () => {
       </div>
 
       <div className="overflow-x-auto   bg-white dark:bg-gray-800 shadow-md rounded-lg">
-        <table className="table w-full">
+        <table id="my-table" className="table w-full">
           <thead>
             <tr className="bg-sky-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
               <th>SL No</th>
               <th>Image</th>
               <th>Title</th>
+              <th>Date</th>
               <th>Category</th>
               <th>Price</th>
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody ref={rowRef}>
             {myBills.map((bill, index) => (
               <tr
                 key={bill._id}
@@ -116,6 +157,7 @@ const MyPayBills = () => {
                   </div>
                 </td>
                 <td>{bill.title}</td>
+                <td>{bill.date}</td>
                 <td>{bill.category}</td>
                 <td>৳{bill.amount}</td>
                 <td className="flex items-center gap-2">
@@ -139,7 +181,10 @@ const MyPayBills = () => {
       </div>
 
       <div className="flex justify-end mt-4">
-        <button className="btn btn-xs primary-btn flex items-center gap-1">
+        <button
+          onClick={handleDownloadPdf}
+          className="btn btn-xs primary-btn flex items-center gap-1"
+        >
           <FaDownload /> Download Report
         </button>
       </div>
@@ -204,6 +249,12 @@ const MyPayBills = () => {
                   className="input w-full dark:bg-gray-700 dark:text-white"
                 />
               </div>
+              <p className="text-sm font-semibold text-blue-500">
+                Note:{" "}
+                <i className="text-red-500">
+                  If you don’t want to update, then just leave it as it is.
+                </i>
+              </p>
               <button type="submit" className="btn w-full mt-4 primary-btn">
                 Submit
               </button>
