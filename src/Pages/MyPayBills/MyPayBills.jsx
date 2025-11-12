@@ -4,6 +4,7 @@ import useAuth from "../../Hooks/useAuth";
 import { FaDownload, FaEdit, FaTrash } from "react-icons/fa";
 import jsPDF from "jspdf";
 import { autoTable } from "jspdf-autotable";
+import Swal from "sweetalert2";
 
 const MyPayBills = () => {
   const { user } = useAuth();
@@ -89,12 +90,34 @@ const MyPayBills = () => {
 
   const handleRemove = async (_id) => {
     try {
-      const { data } = await axiosInstance.delete(`/my-bills/${_id}`);
-      if (data) {
-        setMyBills(myBills.filter((bill) => bill._id !== _id));
+      const result = await Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      });
+      if (result.isConfirmed) {
+        const { data } = await axiosInstance.delete(`/my-bills/${_id}`);
+
+        if (data) {
+          setMyBills(myBills.filter((bill) => bill._id !== _id));
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+        }
       }
     } catch (error) {
       console.error(error);
+      Swal.fire({
+        title: "Error!",
+        text: "Something went wrong while deleting.",
+        icon: "error",
+      });
     }
   };
 
@@ -181,12 +204,14 @@ const MyPayBills = () => {
       </div>
 
       <div className="flex justify-end mt-4">
-        <button
-          onClick={handleDownloadPdf}
-          className="btn btn-xs primary-btn flex items-center gap-1"
-        >
-          <FaDownload /> Download Report
-        </button>
+        {myBills.length > 0 && (
+          <button
+            onClick={handleDownloadPdf}
+            className="btn btn-xs primary-btn flex items-center gap-1"
+          >
+            <FaDownload /> Download Report
+          </button>
+        )}
       </div>
 
       {/* Update Modal */}
