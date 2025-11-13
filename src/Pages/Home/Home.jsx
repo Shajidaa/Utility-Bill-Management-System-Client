@@ -3,6 +3,7 @@ import CreditCard from "../../Components/CreditCard/CreditCard";
 import CustomerFeedback from "../../Components/CustomerFeedback/CustomerFeedback";
 
 import RecentBills from "../../Components/Recent/RecentBills";
+import Services from "../../Components/ServicesCard/Services";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Banner></Banner>
       <RecentBills></RecentBills>
       <CreditCard></CreditCard>
+      <Services></Services>
       <CustomerFeedback></CustomerFeedback>
     </>
   );
