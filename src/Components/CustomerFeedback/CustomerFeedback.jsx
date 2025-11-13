@@ -55,7 +55,7 @@ const CustomerFeedback = () => {
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="w-full border border-blue-400 max-w-md bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mx-auto"
           >
             <div className="flex justify-between items-center px-6 py-4">
