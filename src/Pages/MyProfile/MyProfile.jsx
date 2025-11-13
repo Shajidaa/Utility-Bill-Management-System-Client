@@ -18,8 +18,8 @@ const MyProfile = () => {
 
           <div className="mt-6 relative inline-block">
             <img
-              src={user.photoURL}
-              alt={user.displayName}
+              src={user?.photoURL}
+              alt={user?.displayName}
               className="w-24 h-24 rounded-full border-4 border-white dark:border-gray-800 mx-auto object-cover"
             />
             <button
@@ -44,7 +44,7 @@ const MyProfile = () => {
                   Your name
                 </p>
                 <p className="font-medium text-gray-800 dark:text-gray-200">
-                  {user.displayName}
+                  {user?.displayName}
                 </p>
               </div>
             </div>
@@ -59,7 +59,7 @@ const MyProfile = () => {
                   Email address
                 </p>
                 <p className="font-medium text-gray-800 dark:text-gray-200">
-                  {user.email}
+                  {user?.email}
                 </p>
               </div>
             </div>

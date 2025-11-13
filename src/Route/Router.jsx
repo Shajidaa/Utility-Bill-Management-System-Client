@@ -12,6 +12,7 @@ import Spinner from "../Components/Shared/Spinner";
 import AddBills from "../Pages/Add Bills/AddBills";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import MyProfile from "../Pages/MyProfile/MyProfile";
+import Help from "../Pages/Help/Help";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,15 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+
+      {
+        path: "/help",
+        element: (
+          <PrivateRoute>
+            <Help></Help>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/add-bill",
