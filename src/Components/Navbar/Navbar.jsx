@@ -42,7 +42,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-[#ddf5fc] lg:sticky! z-1000 top-0 right-0 left-0 shadow-sm">
       <MyContainer className={"flex justify-center items-center"}>
         <div className="navbar-start">
           <Link to={"/"} className="text-2xl text-gray-500 font-bold">

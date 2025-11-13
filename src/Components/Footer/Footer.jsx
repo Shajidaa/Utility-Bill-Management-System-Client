@@ -1,6 +1,7 @@
 import React from "react";
 import MyContainer from "../Shared/MyContainer/MyContainer";
 import { FaFacebook, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -14,9 +15,9 @@ const Footer = () => {
               href="#"
               className="flex justify-center space-x-3 lg:justify-start"
             >
-              <span className="self-center text-2xl font-semibold text-sky-600 dark:text-white">
-                PayUp
-              </span>
+              <Link to={"/"} className="text-2xl text-gray-500 font-bold">
+                Pay<span className="text-blue-800">Up</span>
+              </Link>
             </a>
             <p className="mt-4 text-sm text-gray-600 dark:text-gray-400 lg:text-left text-center">
               Simplify your bills. Pay securely. Save time.
