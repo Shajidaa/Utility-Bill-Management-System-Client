@@ -37,23 +37,21 @@ const MyPayBills = () => {
 
     doc.text("PayUp - Bills Report", 10, 10);
     const tableColumn = [
-      "SL No",
       "Title",
-      "Category",
+
       "Name",
       "Email",
       "Contact",
       "Address",
+      "Date",
       "Price",
-      "date",
     ];
-    const tableRows = myBills.map((bill, index) => [
-      index + 1,
+    const tableRows = myBills.map((bill) => [
       bill.title,
-      bill.category,
+
       bill.username,
       bill.email,
-      bill.contact,
+      bill.phone,
       bill.address,
       bill.date,
 
@@ -65,6 +63,7 @@ const MyPayBills = () => {
 
       theme: "grid",
 
+      tableWidth: "auto",
       styles: { align: "center" },
     });
     const finalY = doc.lastAutoTable.finalY || 20;
@@ -77,6 +76,7 @@ const MyPayBills = () => {
     doc.text(`Total Bills Amount: ৳${totalAmount}`, 14, finalY + 20);
     doc.save("PayUp_Bills.pdf");
   };
+  console.log(myBills);
 
   const handleUpdateBtn = async (e, _id) => {
     e.preventDefault();
