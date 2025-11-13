@@ -81,6 +81,7 @@ const AddBills = () => {
               <option>Govt Fee</option>
               <option>Education</option>
               <option>Tracker</option>
+              <option>Mobile Recharge</option>
             </select>
           </div>
         </div>

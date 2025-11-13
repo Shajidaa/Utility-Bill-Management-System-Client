@@ -7,7 +7,7 @@ const MyLinks = ({ children, to, className }) => {
       className={({ isActive }) => `${className} ${
         isActive ? "text-blue-600 " : ""
       }
-       text-lg font-semibold 
+       md:text-lg text-base font-semibold 
       ml-2 mr-2 border-b-2 border-b-transparent
        hover:text-blue-600 hover:border-b-2 hover:border-blue-500 `}
     >
