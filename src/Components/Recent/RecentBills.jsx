@@ -56,7 +56,7 @@ const RecentBills = () => {
             onClick={() => setSelectedCategory(c)}
             className={` p-2 rounded-2xl hover:scale-105 transition-all dark:bg-gray-700 bg-base-300
                flex flex-col justify-center items-center  ${
-                 selectedCategory === c ? "" : "btn-outline"
+                 selectedCategory === c ? "bg-blue-200 dark:bg-gray-900" : ""
                }`}
           >
             <img

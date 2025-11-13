@@ -15,7 +15,10 @@ const Help = () => {
           <input
             type="text"
             placeholder='Try "payment issue" or "manage account"'
-            className="w-full px-5 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500"
+            className="w-full px-5 py-3
+             rounded-xl border border-gray-300
+              dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-800
+               dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500"
           />
         </div>
         <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">
