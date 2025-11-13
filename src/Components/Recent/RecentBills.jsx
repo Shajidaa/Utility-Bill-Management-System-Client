@@ -14,13 +14,23 @@ const RecentBills = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
-    instance.get("/bills").then((data) => setBillsCategory(data.data));
+    setLoading(true);
+    instance
+      .get("/bills")
+      .then((data) => setBillsCategory(data.data))
+      .finally(() => {
+        setLoading(false);
+      });
   }, [instance]);
 
   useEffect(() => {
     setLoading(true);
-    instance.get("/recent-bills").then((data) => setRecentBills(data.data));
-    setLoading(false);
+    instance
+      .get("/recent-bills")
+      .then((data) => setRecentBills(data.data))
+      .finally(() => {
+        setLoading(false);
+      });
   }, [instance]);
   if (loading) {
     return <Spinner></Spinner>;

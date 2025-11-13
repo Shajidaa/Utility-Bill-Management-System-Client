@@ -22,7 +22,9 @@ const Card = ({ bill }) => {
       </figure>
 
       <div className="card-body text-left p-5">
-        <h2 className="card-title text-lg font-bold text-sky-800 ">{title}</h2>
+        <h2 className="card-title text-lg font-bold text-sky-800 dark:text-sky-50 ">
+          {title}
+        </h2>
 
         <div className="space-y-1 text-sm">
           <p className="flex items-center gap-2 text-gray-700 dark:text-gray-300">

@@ -10,15 +10,15 @@ const Footer = () => {
         <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
           {/* Brand */}
           <div className="lg:w-1/3">
-            <a
-              rel="noopener noreferrer"
-              href="#"
+            <Link
+              to={"/"}
               className="flex justify-center space-x-3 lg:justify-start"
             >
-              <Link to={"/"} className="text-2xl text-gray-500 font-bold">
-                Pay<span className="text-blue-800">Up</span>
-              </Link>
-            </a>
+              <p className="text-2xl text-gray-500  dark:text-blue-900 font-bold">
+                Pay
+                <span className="text-blue-800  dark:text-white ">Up</span>
+              </p>
+            </Link>
             <p className="mt-4 text-sm text-gray-600 dark:text-gray-400 lg:text-left text-center">
               Simplify your bills. Pay securely. Save time.
             </p>

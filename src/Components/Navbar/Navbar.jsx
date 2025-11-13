@@ -47,9 +47,9 @@ const Navbar = () => {
         <div className="navbar-start">
           <Link
             to={"/"}
-            className="text-2xl font-semibold text-gray-500 md:font-bold"
+            className="text-2xl font-semibold text-gray-500 dark:text-blue-900 md:font-bold"
           >
-            Pay<span className="text-blue-800">Up</span>
+            Pay<span className="text-blue-800 dark:text-white">Up</span>
           </Link>
         </div>
 
@@ -74,7 +74,7 @@ const Navbar = () => {
               <Link
                 onClick={handleLogOutBtn}
                 to={"/login"}
-                className="btn text-white hover:rounded-2xl hover:border bg-red-700 ml-2 mr-2 btn-sm md:btn-md "
+                className="btn text-white primary-btn ml-2 mr-2 btn-sm md:btn-md "
               >
                 Log Out <TbLogout2 />
               </Link>
@@ -83,14 +83,12 @@ const Navbar = () => {
             <div className="flex justify-center items-center">
               <Link
                 to={"/login"}
-                className="btn primary-btn btn-sm!  hover:rounded-2xl! md:btn-md! "
+                className="btn primary-btn btn-sm!   md:btn-md! "
               >
                 <BiLogIn /> Login
               </Link>
               <MyLinks
-                className={
-                  "btn primary-btn btn-sm! hover:rounded-2xl!  md:btn-md! "
-                }
+                className={"btn primary-btn btn-sm!   md:btn-md! "}
                 to={"/register"}
               >
                 <div className="size-5">

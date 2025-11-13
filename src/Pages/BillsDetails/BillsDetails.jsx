@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import ErrorCard from "../ErrorCard/ErrorCard";
 import MyContainer from "../../Components/Shared/MyContainer/MyContainer";
+import { FaEnvelope, FaPhone, FaUser } from "react-icons/fa6";
 
 const BillsDetails = () => {
   const details = useLoaderData();
@@ -24,6 +25,10 @@ const BillsDetails = () => {
     amount,
     date,
     _id: billsId,
+    name,
+    email,
+    contact,
+    user_image,
   } = details;
 
   const handleBillModel = () => {
@@ -50,7 +55,10 @@ const BillsDetails = () => {
       category,
       date,
     };
-
+    if (phone.length !== 11) {
+      toast.error("Phone number must be exactly 11 digits!");
+      return;
+    }
     try {
       const { data } = await axiosSecure.post("/add-bills", newBills);
       if (data.insertedId) {
@@ -82,21 +90,25 @@ const BillsDetails = () => {
             ⬅ bills
           </Link>
         </MyContainer>
+
         <div className="min-h-screen bg-white dark:bg-gray-900 p-6 flex items-center justify-center">
           <div className="grid md:grid-cols-2 gap-8 w-full max-w-5xl bg-slate-50 dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 transition duration-300">
             {/* Left Side Image */}
-
-            <div className="flex items-center justify-center bg-slate-100 dark:bg-gray-700">
+            <div
+              className="flex flex-col h-96
+             items-center justify-center
+              bg-slate-100 dark:bg-gray-700 p-4"
+            >
               <img
                 src={image}
                 alt={title}
-                className="object-cover h-full w-full max-h-[400px]"
+                className="object-cover h-full w-full rounded-lg mb-4"
               />
             </div>
 
-            {/* Right Side Info */}
+            {/* Right Side Bill Info */}
             <div className="md:p-6 p-3 space-y-4">
-              <h1 className="md:text-4xl text-xl font-medium title md:font-bold  mb-2">
+              <h1 className="md:text-4xl text-2xl font-medium  md:font-bold mb-2">
                 {title}
               </h1>
 
@@ -111,9 +123,8 @@ const BillsDetails = () => {
                   {location}
                 </p>
 
-                <p className="flex items-center gap-2 ">
+                <p className="flex items-center gap-2">
                   <MdDescription className="text-sky-600 size-5 dark:text-sky-400" />
-
                   {description}
                 </p>
 
@@ -125,6 +136,32 @@ const BillsDetails = () => {
                 <p className="flex items-center gap-2">
                   <MdDateRange className="text-sky-600 dark:text-sky-400" />
                   {new Date(date).toLocaleDateString()}
+                </p>
+                {/* User Info */}
+                <p className="flex items-center gap-2 text-gray-800 dark:text-gray-200">
+                  <FaUser className="text-sky-600" />
+                  <span className="font-semibold">image:</span>{" "}
+                  <div className="md:size-12 size-8  border-2 border-[#021247] rounded-full ">
+                    <img
+                      className="w-full bg-cover h-full rounded-full  "
+                      src={user_image}
+                      alt={name}
+                    />
+                  </div>
+                </p>
+                <p className="flex items-center gap-2 text-gray-800 dark:text-gray-200">
+                  <FaUser className="text-sky-600" />
+                  <span className="font-semibold">Name:</span> {name}
+                </p>
+
+                <p className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                  <FaEnvelope className="text-sky-600" />
+                  <span className="font-semibold">Email:</span> {email}
+                </p>
+
+                <p className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                  <FaPhone className="text-sky-600" />
+                  <span className="font-semibold">Contact:</span> {contact}
                 </p>
               </div>
 
@@ -146,7 +183,6 @@ const BillsDetails = () => {
               </div>
             </div>
           </div>
-
           {/* Bill Modal */}
           <dialog ref={billRef} className="modal modal-bottom sm:modal-middle">
             <div className="modal-box bg-white dark:bg-gray-800">
@@ -222,20 +258,20 @@ const BillsDetails = () => {
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="+88 0123456789"
+                  placeholder=" 01234567899"
                   className="input input-bordered w-full"
                   required
                 />
                 <button
                   type="submit"
-                  className="btn primary-btn text-white w-full"
+                  className="btn w-full! primary-btn text-white "
                 >
                   Pay Bill
                 </button>
               </form>
               <div className="modal-action">
                 <form method="dialog">
-                  <button className="btn">Cancel</button>
+                  <button className="btn secondary-btn">Cancel</button>
                 </form>
               </div>
             </div>

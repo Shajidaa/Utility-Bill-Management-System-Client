@@ -149,7 +149,7 @@ const Register = () => {
 
                 <button
                   type="submit"
-                  className="btn w-full! hover:rounded-2xl! mt-2 primary-btn text-white"
+                  className="btn w-full!  mt-2 primary-btn text-white"
                   disabled={btnLoading}
                 >
                   {btnLoading ? (
@@ -169,7 +169,7 @@ const Register = () => {
 
               <button
                 onClick={handleGoogleRegister}
-                className="btn w-full hover:rounded-2xl! mt-4 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-black dark:text-white flex items-center justify-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                className="btn w-full  mt-4 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-black dark:text-white flex items-center justify-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
               >
                 <svg
                   aria-label="Google logo"
