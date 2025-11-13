@@ -1,13 +1,13 @@
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Typewriter } from "react-simple-typewriter";
-import { motion } from "framer-motion"; // ✅ Import Framer Motion
-// Import Swiper styles
+import { motion } from "framer-motion";
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./banner.css";
-// import required modules
+
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Link } from "react-router";
 
