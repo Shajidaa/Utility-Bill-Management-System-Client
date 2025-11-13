@@ -145,7 +145,7 @@ const MyPayBills = () => {
     <div className="p-4 max-w-7xl mx-auto">
       <title>My Pay Bills | PayUp</title>
       <div className="min-h-dvh ">
-        <h1 className="text-3xl  font-bold text-center text-sky-600 dark:text-sky-400 my-5">
+        <h1 className="text-3xl  font-bold text-center title my-5">
           My Pay Bills
         </h1>
 

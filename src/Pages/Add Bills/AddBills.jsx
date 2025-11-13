@@ -43,9 +43,7 @@ const AddBills = () => {
         <FaArrowLeft className="mr-2 " size={20} /> Back to Bills
       </Link>
 
-      <h2 className="text-center text-4xl font-bold mt-4 text-sky-600 dark:text-sky-400">
-        Create Your Bill
-      </h2>
+      <h2 className="title  text-center ">Create Your Bill</h2>
 
       <form
         onSubmit={handleCreateBills}
