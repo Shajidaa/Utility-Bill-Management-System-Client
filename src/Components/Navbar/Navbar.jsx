@@ -45,7 +45,10 @@ const Navbar = () => {
     <div className="navbar bg-[#ddf5fc] dark:bg-gray-950 lg:sticky! z-1000 top-0 right-0 left-0 shadow-sm">
       <MyContainer className={"flex justify-center items-center"}>
         <div className="navbar-start">
-          <Link to={"/"} className="text-2xl text-gray-500 font-bold">
+          <Link
+            to={"/"}
+            className="text-2xl font-semibold text-gray-500 md:font-bold"
+          >
             Pay<span className="text-blue-800">Up</span>
           </Link>
         </div>
@@ -53,9 +56,9 @@ const Navbar = () => {
         <div className="hidden navbar-center lg:flex">
           <ul className="">{links}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="md:navbar-end navbar-center ">
           {user ? (
-            <div className=" navbar-end  ">
+            <div className=" md:navbar-end navbar-center ">
               {" "}
               <Link
                 to={"/myProfile"}
