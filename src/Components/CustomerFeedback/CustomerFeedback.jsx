@@ -12,7 +12,7 @@ const CustomerFeedback = () => {
         Real stories from people who use PayUp to simplify their monthly bills.
       </p>
       <div className="flex flex-wrap justify-between gap-5  items-center py-10">
-        <div className="w-full border max-w-md bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mx-auto">
+        <div className="w-full border border-blue-400 max-w-md bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mx-auto">
           <div className="flex justify-between items-center px-6 py-4">
             <div className="flex space-x-4">
               <div>
@@ -39,7 +39,7 @@ const CustomerFeedback = () => {
             </div>
           </div>
         </div>
-        <div className="w-full border max-w-md bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mx-auto">
+        <div className="w-full border border-blue-400 max-w-md bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mx-auto">
           <div className="flex justify-between items-center px-6 py-4">
             <div className="flex space-x-4">
               <div>
@@ -67,7 +67,7 @@ const CustomerFeedback = () => {
           </div>
         </div>
 
-        <div className="w-full border max-w-md bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mx-auto">
+        <div className="w-full border border-blue-400 max-w-md bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mx-auto">
           <div className="flex justify-between items-center px-6 py-4">
             <div className="flex space-x-4">
               <div>
