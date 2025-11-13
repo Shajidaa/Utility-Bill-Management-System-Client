@@ -10,7 +10,7 @@ const Card = ({ bill }) => {
   return (
     <div
       className="card bg-base-100 shadow-md max-h-96 
-    dark:shadow-lg hover:shadow-xl transition-all 
+    dark:shadow-lg hover:shadow-xl transition-all p-2
     duration-300 hover:scale-105  rounded-2xl  dark:bg-gray-800"
     >
       <figure className="h-48 ">
