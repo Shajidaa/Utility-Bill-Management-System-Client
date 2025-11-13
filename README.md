@@ -17,11 +17,11 @@ PayUp is a modern, responsive, and user-friendly billing management platform des
 -**Library:** React , React Router
 
 -**package:** Swiper,react-icons,
-react-spinners,react-toastify,lottiefiles,jspdf-autotable,jspdf,sweetalert2,react-spinners,react-simple-typewriter,
+react-spinners,react-toastify,lottiefiles,jspdf-autotable,jspdf,sweetalert2,react-spinners,react-simple-typewriter,framer-motion
 
 Link :
 
-[Project_PayUP]()
+[Project_PayUP](https://payup-1204c.web.app)
 
 [Github_Link_client](https://github.com/Shajidaa/Utility-Bill-Management-System-Client)
 [Github_Link_server](https://github.com/Shajidaa/Utility-Bill-Management-System-Server)
