@@ -97,7 +97,7 @@ const Banner = () => {
             className="hero md:min-h-[80vh] bg-center bg-cover"
             style={{
               backgroundImage:
-                "url('https://i.ibb.co.com/rGFhMdtW/close-up-coin-pile-near-banknote-stack.jpg')",
+                "url('https://i.ibb.co.com/wFpbD1jm/photo-1616803140344-6682afb13cda.jpg')",
             }}
           >
             <div className="hero-overlay bg-black/60"></div>

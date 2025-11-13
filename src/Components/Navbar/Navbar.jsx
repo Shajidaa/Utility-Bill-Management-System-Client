@@ -43,8 +43,8 @@ const Navbar = () => {
   );
   return (
     <div className="navbar bg-[#ddf5fc] dark:bg-gray-950 lg:sticky! z-1000 top-0 right-0 left-0 shadow-sm">
-      <MyContainer className={"flex justify-center items-center"}>
-        <div className="navbar-start">
+      <MyContainer className={"flex justify-between items-center"}>
+        <div className="">
           <Link
             to={"/"}
             className="text-2xl font-semibold text-gray-500 dark:text-blue-900 md:font-bold"
@@ -54,11 +54,15 @@ const Navbar = () => {
         </div>
 
         <div className="hidden  lg:flex">
-          <ul className="navbar-center">{links}</ul>
+          <ul className="navbar-center ">
+            {" "}
+            <li>{links}</li>
+          </ul>
         </div>
-        <div className="md:navbar-end navbar-center ">
+
+        <div className="  flex justify-center items-center ">
           {user ? (
-            <div className=" md:navbar-end navbar-center ">
+            <div className="flex justify-center items-center ">
               {" "}
               <Link
                 to={"/myProfile"}
@@ -80,7 +84,7 @@ const Navbar = () => {
               </Link>
             </div>
           ) : (
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center  items-center ml-2">
               <Link
                 to={"/login"}
                 className="btn primary-btn btn-sm!   md:btn-md! "
@@ -99,7 +103,7 @@ const Navbar = () => {
             </div>
           )}
 
-          <label className="swap swap-rotate">
+          <label className="swap  swap-rotate">
             <input
               onChange={(e) => handleThemeToggle(e.target.checked)}
               type="checkbox"
@@ -130,7 +134,10 @@ const Navbar = () => {
 
       <div className="shadow-sm bg-base-100/30 backdrop-blur-md lg:hidden fixed bottom-0 left-0 w-full z-50">
         <div className=" flex justify-center items-center">
-          <ul className=" px-1">{links}</ul>
+          <ul className=" px-1">
+            {" "}
+            <li>{links}</li>
+          </ul>
         </div>
       </div>
     </div>
