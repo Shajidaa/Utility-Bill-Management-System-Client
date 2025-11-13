@@ -4,18 +4,27 @@ import Card from "../Card/Card";
 import MyContainer from "../Shared/MyContainer/MyContainer";
 import { Link } from "react-router";
 
+import Spinner from "../Shared/Spinner";
+
 const RecentBills = () => {
   const instance = useAxios();
   const [recentBills, setRecentBills] = useState([]);
-  useEffect(() => {
-    instance.get("/recent-bills").then((data) => setRecentBills(data.data));
-  }, [instance]);
-  //category
+  const [loading, setLoading] = useState(false);
   const [billsCategory, setBillsCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+
   useEffect(() => {
     instance.get("/bills").then((data) => setBillsCategory(data.data));
   }, [instance]);
+
+  useEffect(() => {
+    setLoading(true);
+    instance.get("/recent-bills").then((data) => setRecentBills(data.data));
+  }, [instance]);
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
+  //category
 
   let category = [...new Set(billsCategory.map((item) => item.category))];
   category.splice(-1, 0);
