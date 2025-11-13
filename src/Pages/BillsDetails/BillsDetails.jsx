@@ -91,7 +91,10 @@ const BillsDetails = () => {
           </Link>
         </div>
 
-        <div className=" bg-white max-w-7xl mx-auto dark:bg-gray-900 p-6 flex items-center justify-center">
+        <div
+          className=" bg-white max-w-7xl 
+        mx-auto dark:bg-gray-900 p-6 flex items-center justify-center"
+        >
           <div
             className="grid grid-cols-1
            gap-8  px-0 bg-slate-50 
@@ -101,7 +104,7 @@ const BillsDetails = () => {
           >
             {/* Left Side Image */}
             <div
-              className="flex flex-col 
+              className="flex flex-col   max-w-7xl 
              items-center justify-center p-2
               bg-slate-100 dark:bg-gray-700"
             >
