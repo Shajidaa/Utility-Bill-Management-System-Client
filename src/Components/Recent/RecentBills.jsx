@@ -20,6 +20,7 @@ const RecentBills = () => {
   useEffect(() => {
     setLoading(true);
     instance.get("/recent-bills").then((data) => setRecentBills(data.data));
+    setLoading(false);
   }, [instance]);
   if (loading) {
     return <Spinner></Spinner>;

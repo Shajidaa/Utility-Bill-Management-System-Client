@@ -53,8 +53,8 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="hidden navbar-center lg:flex">
-          <ul className="">{links}</ul>
+        <div className="hidden  lg:flex">
+          <ul className="navbar-center">{links}</ul>
         </div>
         <div className="md:navbar-end navbar-center ">
           {user ? (

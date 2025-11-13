@@ -83,7 +83,7 @@ const Banner = () => {
                 </p>
                 <Link
                   to={"/bills"}
-                  className="btn btn-primary btn-sm mb-5 md:btn-lg"
+                  className="btn primary-btn border-0 btn-sm mb-5 md:btn-lg"
                 >
                   Get Started
                 </Link>
@@ -142,7 +142,7 @@ const Banner = () => {
                 </p>
                 <Link
                   to={"/bills"}
-                  className="btn btn-primary btn-sm mb-5 md:btn-lg"
+                  className="btn primary-btn border-0 btn-sm mb-5 md:btn-lg"
                 >
                   Get Started
                 </Link>
@@ -201,7 +201,7 @@ const Banner = () => {
                 </p>
                 <Link
                   to={"/bills"}
-                  className="btn btn-primary btn-sm mb-5 md:btn-lg"
+                  className="btn primary-btn border-0 btn-sm mb-5 md:btn-lg"
                 >
                   Get Started
                 </Link>
