@@ -85,15 +85,15 @@ const BillsDetails = () => {
     <>
       <title>{`${title} | Bill Details`}</title>
       <div className=" bg-white dark:bg-gray-900">
-        <MyContainer className={"py-2 "}>
+        <div className={"p-3  max-w-7xl mx-auto"}>
           <Link to={"/bills"} className="text-primary hover:underline">
             ⬅ bills
           </Link>
-        </MyContainer>
+        </div>
 
         <div className=" bg-white max-w-7xl mx-auto dark:bg-gray-900 p-6 flex items-center justify-center">
           <div
-            className="grid lg:grid-cols-2
+            className="grid grid-cols-1
            gap-8  px-0 bg-slate-50 
             dark:bg-gray-800 rounded-2xl shadow-lg
              border border-gray-200 

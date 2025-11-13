@@ -9,15 +9,15 @@ const Card = ({ bill }) => {
 
   return (
     <div
-      className="card bg-base-100 shadow-md max-h-96
+      className="card bg-base-100 shadow-md max-h-96 
     dark:shadow-lg hover:shadow-xl transition-all 
     duration-300 hover:scale-105  rounded-2xl  dark:bg-gray-800"
     >
-      <figure>
+      <figure className="h-48 ">
         <img
           src={image}
           alt={title}
-          className="h-48 w-full object-cover rounded-t-2xl"
+          className="h-full w-full object-cover rounded-t-2xl"
         />
       </figure>
 
