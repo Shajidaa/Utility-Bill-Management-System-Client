@@ -53,7 +53,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="hidden  lg:flex">
+        <div className="hidden  md:flex">
           <ul className="navbar-center ">
             {" "}
             <li>{links}</li>
@@ -132,7 +132,7 @@ const Navbar = () => {
         </div>
       </MyContainer>
 
-      <div className="shadow-sm bg-base-100/30 backdrop-blur-md lg:hidden fixed bottom-0 left-0 w-full z-50">
+      <div className="shadow-sm bg-base-100/30 backdrop-blur-md md:hidden fixed bottom-0 left-0 w-full z-50">
         <div className=" flex justify-center items-center">
           <ul className=" px-1">
             {" "}

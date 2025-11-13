@@ -10,7 +10,7 @@ const Card = ({ bill }) => {
   return (
     <div
       className="card bg-base-100 shadow-md max-h-96 
-    dark:shadow-lg hover:shadow-xl transition-all p-2
+    dark:shadow-lg hover:shadow-xl transition-all
     duration-300 hover:scale-105  rounded-2xl  dark:bg-gray-800"
     >
       <figure className="h-48 ">
@@ -21,7 +21,7 @@ const Card = ({ bill }) => {
         />
       </figure>
 
-      <div className="card-body text-left p-5">
+      <div className="card-body">
         <h2 className="card-title text-lg font-bold text-sky-800 dark:text-sky-50 ">
           {title}
         </h2>
