@@ -44,7 +44,7 @@ const AddBills = () => {
       </Link>
 
       <h2 className="text-center text-4xl font-bold mt-4 text-sky-600 dark:text-sky-400">
-        Create <span className="text-indigo-500">Your Bill</span>
+        Create Your Bill
       </h2>
 
       <form

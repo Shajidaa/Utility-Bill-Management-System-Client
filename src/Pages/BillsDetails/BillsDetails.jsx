@@ -91,24 +91,30 @@ const BillsDetails = () => {
           </Link>
         </MyContainer>
 
-        <div className="min-h-screen bg-white dark:bg-gray-900 p-6 flex items-center justify-center">
-          <div className="grid md:grid-cols-2 gap-8 w-full max-w-5xl bg-slate-50 dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 transition duration-300">
+        <div className=" bg-white max-w-7xl mx-auto dark:bg-gray-900 p-6 flex items-center justify-center">
+          <div
+            className="grid lg:grid-cols-2
+           gap-8  px-0 bg-slate-50 
+            dark:bg-gray-800 rounded-2xl shadow-lg
+             border border-gray-200 
+              dark:border-gray-700 transition duration-300"
+          >
             {/* Left Side Image */}
             <div
-              className="flex flex-col h-96
-             items-center justify-center
-              bg-slate-100 dark:bg-gray-700 p-4"
+              className="flex flex-col 
+             items-center justify-center p-2
+              bg-slate-100 dark:bg-gray-700"
             >
               <img
                 src={image}
                 alt={title}
-                className="object-cover h-full w-full rounded-lg mb-4"
+                className="object-contain w-full rounded-lg mb-4"
               />
             </div>
 
             {/* Right Side Bill Info */}
             <div className="md:p-6 p-3 space-y-4">
-              <h1 className="md:text-4xl text-2xl font-medium  md:font-bold mb-2">
+              <h1 className="md:text-4xl text-xl text-wrap font-medium  md:font-bold mb-2">
                 {title}
               </h1>
 
@@ -128,17 +134,17 @@ const BillsDetails = () => {
                   {description}
                 </p>
 
-                <p className="flex items-center gap-2">
+                <p className="flex   items-center gap-2">
                   <FaMoneyBillWave className="text-sky-600 dark:text-sky-400" />
                   Amount: <span className="font-semibold">৳{amount}</span>
                 </p>
 
-                <p className="flex items-center gap-2">
+                <p className="flex  items-center gap-2">
                   <MdDateRange className="text-sky-600 dark:text-sky-400" />
                   {new Date(date).toLocaleDateString()}
                 </p>
                 {/* User Info */}
-                <p className="flex items-center gap-2 text-gray-800 dark:text-gray-200">
+                <p className="flex  items-center gap-2 text-gray-800 dark:text-gray-200">
                   <FaUser className="text-sky-600" />
                   <span className="font-semibold">image:</span>{" "}
                   <div className="md:size-12 size-8  border-2 border-[#021247] rounded-full ">
@@ -149,17 +155,18 @@ const BillsDetails = () => {
                     />
                   </div>
                 </p>
-                <p className="flex items-center gap-2 text-gray-800 dark:text-gray-200">
+                <p className="flex text-wrap items-center gap-2 text-gray-800 dark:text-gray-200">
                   <FaUser className="text-sky-600" />
                   <span className="font-semibold">Name:</span> {name}
                 </p>
 
-                <p className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                <p className="flex  items-center gap-2  text-gray-600 dark:text-gray-300">
                   <FaEnvelope className="text-sky-600" />
-                  <span className="font-semibold">Email:</span> {email}
+                  <span className="font-semibold text-wrap">Email:</span>{" "}
+                  {email}
                 </p>
 
-                <p className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                <p className="flex  items-center gap-2 text-gray-600 dark:text-gray-300">
                   <FaPhone className="text-sky-600" />
                   <span className="font-semibold">Contact:</span> {contact}
                 </p>
@@ -170,7 +177,7 @@ const BillsDetails = () => {
                 <button
                   onClick={handleBillModel}
                   disabled={!isCurrentMonth}
-                  className={`btn btn-md w-full! text-white border-none transition duration-200 ${
+                  className={`btn md:btn-md btn-sm!  w-full! text-white border-none transition duration-200 ${
                     isCurrentMonth
                       ? "primary-btn"
                       : "bg-gray-400 dark:bg-gray-600 cursor-not-allowed"
