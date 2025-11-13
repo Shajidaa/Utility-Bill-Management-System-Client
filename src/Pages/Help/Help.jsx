@@ -3,10 +3,10 @@ import { MdManageAccounts } from "react-icons/md";
 import { SiTeamspeak } from "react-icons/si";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import { VscGoToEditingSession } from "react-icons/vsc";
+
 const Help = () => {
   return (
     <div className="min-h-screen  transition duration-500">
-      {/* Header Section */}
       <div className="bg-sky-100 dark:bg-sky-900 py-16 text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
           How can we help?
@@ -26,7 +26,6 @@ const Help = () => {
         </p>
       </div>
 
-      {/* Topics Section */}
       <div className="max-w-6xl mx-auto py-12 px-6 grid md:grid-cols-3 gap-6">
         {[
           {
