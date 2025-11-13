@@ -64,7 +64,7 @@ const Banner = () => {
                 variants={textVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: false }}
               >
                 <h1 className="mb-4 text-xl md:text-5xl font-bold">
                   All Your Payments.
@@ -117,7 +117,7 @@ const Banner = () => {
                 variants={textVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: false }}
               >
                 <h1 className="mb-4 text-xl md:text-5xl font-bold">
                   Your Finances,{" "}
@@ -170,7 +170,7 @@ const Banner = () => {
                 variants={textVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: false }}
               >
                 <h1 className="mb-4 text-xl md:text-5xl font-bold">
                   Empowering Smarter{" "}
