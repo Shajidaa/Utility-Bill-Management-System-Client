@@ -29,9 +29,6 @@
   @apply btn text-white bg-linear-to-l from-[#1c7bf6] via-[#10bff7] to-[#35cff4] border-none hover:opacity-90 hover:scale-105 transition-all duration-300;
 }
 
-.primary-btn:hover {
-  @apply opacity-80
-}
 
 .secondary-btn {
   @apply btn text-[#1c7bf6] bg-transparent border border-[#1c7bf6] hover:bg-[#1c7bf6] hover:text-white hover:scale-105 transition-all duration-300;
