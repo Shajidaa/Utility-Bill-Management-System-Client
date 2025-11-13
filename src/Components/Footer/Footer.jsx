@@ -135,8 +135,9 @@ const Footer = () => {
               </div>
               <div className="flex justify-start space-x-3">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/profile.php?id=61564677698432"
                   title="Facebook"
+                  target="blank"
                   className="hover:text-sky-600 dark:hover:text-sky-400"
                 >
                   <FaFacebook />
@@ -149,14 +150,16 @@ const Footer = () => {
                   <FaXTwitter />
                 </a>
                 <a
-                  href="#"
-                  title="Instagram"
+                  href="https://github.com/Shajidaa"
+                  title="github"
+                  target="blank"
                   className="hover:text-sky-600 dark:hover:text-sky-400"
                 >
                   <FaGithub />
                 </a>
                 <a
-                  href="#"
+                  href="https://linkedin.com/in/shajida-akter-lopa-42660b325"
+                  target="blank"
                   title="LinkedIn"
                   className="hover:text-sky-600 dark:hover:text-sky-400"
                 >
