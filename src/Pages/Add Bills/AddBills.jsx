@@ -14,8 +14,17 @@ const AddBills = () => {
   const handleCreateBills = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     const form = new FormData(e.target);
     const bills = Object.fromEntries(form.entries());
+    const contact = bills.contact?.trim();
+
+    if (contact.length !== 11) {
+      toast.error("Phone number must be exactly 11 digits!");
+      setLoading(false);
+      return;
+    }
+
     const newBills = { ...bills, email: user?.email };
 
     try {
@@ -165,6 +174,7 @@ const AddBills = () => {
             <label className="label font-semibold">Contact</label>
             <input
               type="text"
+              maxLength={11}
               name="contact"
               placeholder="e.g. +1-555-1234"
               className="input input-bordered w-full dark:bg-gray-700 dark:text-white"

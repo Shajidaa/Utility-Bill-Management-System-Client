@@ -179,7 +179,7 @@ const BillsDetails = () => {
                   disabled={!isCurrentMonth}
                   className={`btn md:btn-md btn-sm!  w-full! text-white border-none transition duration-200 ${
                     isCurrentMonth
-                      ? " bg-linear-to-l from-[#1c7bf6] via-[#10bff7] to-[#35cff4] "
+                      ? " bg-linear-to-l from-[#1c7bf6] via-[#10bff7] to-[#35cff4] hover:opacity-90"
                       : "bg-gray-400 dark:bg-gray-600 cursor-not-allowed"
                   }`}
                 >
