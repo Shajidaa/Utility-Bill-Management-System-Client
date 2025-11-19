@@ -21,7 +21,9 @@ react-spinners,react-toastify,lottiefiles,jspdf-autotable,jspdf,sweetalert2,reac
 
 -**Database:** MongoDB
 
--**Authentication & Hosting:** Firebase
+-**Authentication & Hosting:**  Firebase
+
+
 Link :
 
 [Project_PayUP](https://payup-1204c.web.app)
