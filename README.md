@@ -57,15 +57,15 @@ _ _
 
   git clone https://github.com/Shajidaa/Utility-Bill-Management-System-Client.git
   
-#   Go to the project directory
+# Go to the project directory
 
   cd Utility-Bill-Management-System-Client
   
-# Install dependencies
+#  Install dependencies
 
   npm install
   
-#Start the server
+#  Start the server
 
   npm run dev
 ## 💬 Feedback
