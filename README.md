@@ -19,6 +19,9 @@ PayUp is a modern, responsive, and user-friendly billing management platform des
 -**package:** Swiper,react-icons,
 react-spinners,react-toastify,lottiefiles,jspdf-autotable,jspdf,sweetalert2,react-spinners,react-simple-typewriter,framer-motion
 
+-**Database:** MongoDB
+
+-**Authentication & Hosting:** Firebase
 Link :
 
 [Project_PayUP](https://payup-1204c.web.app)
