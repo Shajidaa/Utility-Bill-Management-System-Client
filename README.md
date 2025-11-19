@@ -1,4 +1,4 @@
-#💳 PayUp
+## 💳 PayUp
 
 ---
 
@@ -8,6 +8,17 @@ PayUp is a modern, responsive, and user-friendly billing management platform des
 
 **PayUP**
 
+## 🚀 Features
+
+- Fully responsive design for mobile, tablet, and desktop devices.  
+- Browse, manage, and download bills with ease.  
+- Seamless dynamic UI built with React and Framer Motion.  
+- Real-time database operations with MongoDB.  
+- User authentication via Firebase (including Google login).  
+- Add, update, delete, and accept jobs (bills) with a user-friendly interface.  
+- Interactive elements like toast notifications, animations, and spinners.  
+
+---
 ## Technologies used :
 
 -**/Client**: HTML5, React, React Router, Tailwind CSS
@@ -41,19 +52,23 @@ VITE_APP_appId
 
 ## 🖥️ Run Locally
 ___
-Clone the project
+## Clone the project
+_ _
 
-  git clone 
-Go to the project directory
+  git clone https://github.com/Shajidaa/Utility-Bill-Management-System-Client.git
+  
+#   Go to the project directory
 
-  cd 
-Install dependencies
+  cd Utility-Bill-Management-System-Client
+  
+# Install dependencies
 
   npm install
-Start the server
+  
+#Start the server
 
   npm run dev
-💬 Feedback
+## 💬 Feedback
 If you have any feedback, please reach out to us at shajidaislam34@gmail.com
 
 Link :
