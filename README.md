@@ -1,4 +1,4 @@
-# PayUp
+#💳 PayUp
 
 ---
 
@@ -10,19 +10,51 @@ PayUp is a modern, responsive, and user-friendly billing management platform des
 
 ## Technologies used :
 
--**Core:** HTML5,CSS3,JavaScript
+-**/Client**: HTML5, React, React Router, Tailwind CSS
+**Libraries & Packages:**  
+- Swiper  
+- react-icons  
+- react-spinners  
+- react-toastify  
+- lottiefiles  
+- jspdf  
+- jspdf-autotable  
+- sweetalert2  
+- react-simple-typewriter  
+- framer-motion  
+-**Server**  Firebase, NodeJS, ExpressJS, MongoDB
 
--**Framework:** Tailwind Css
+## 📦 Environment Variables
+To run this project, you will need to add the following Firebase Auth environment variables to your .env file
 
--**Library:** React , React Router
+VITE_APP_apiKey
 
--**package:** Swiper,react-icons,
-react-spinners,react-toastify,lottiefiles,jspdf-autotable,jspdf,sweetalert2,react-spinners,react-simple-typewriter,framer-motion
+VITE_APP_authDomain
 
--**Database:** MongoDB
+VITE_APP_projectId
 
--**Authentication & Hosting:**  Firebase
+VITE_APP_storageBucket
 
+VITE_APP_messagingSenderId
+
+VITE_APP_appId
+
+## 🖥️ Run Locally
+___
+Clone the project
+
+  git clone 
+Go to the project directory
+
+  cd 
+Install dependencies
+
+  npm install
+Start the server
+
+  npm run dev
+💬 Feedback
+If you have any feedback, please reach out to us at shajidaislam34@gmail.com
 
 Link :
 
