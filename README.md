@@ -25,3 +25,18 @@ Link :
 
 [Github_Link_client](https://github.com/Shajidaa/Utility-Bill-Management-System-Client)
 [Github_Link_server](https://github.com/Shajidaa/Utility-Bill-Management-System-Server)
+
+## Run Locally
+
+Follow these steps to run PayUp on your local machine:
+
+### 1. Clone the Repositories
+
+```bash
+# Clone client repository
+git clone https://github.com/Shajidaa/Utility-Bill-Management-System-Client.git
+
+# Clone server repository
+git clone https://github.com/Shajidaa/Utility-Bill-Management-System-Server.git
+
+```

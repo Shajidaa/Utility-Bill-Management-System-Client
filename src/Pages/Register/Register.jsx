@@ -68,7 +68,7 @@ const Register = () => {
   };
 
   const handleShow = () => setShow(!show);
-  console.log(user);
+  // console.log(user);
 
   return (
     <>

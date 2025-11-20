@@ -76,7 +76,7 @@ const MyPayBills = () => {
     doc.text(`Total Bills Amount: ৳${totalAmount}`, 14, finalY + 20);
     doc.save("PayUp_Bills.pdf");
   };
-  console.log(myBills);
+  // console.log(myBills);
 
   const handleUpdateBtn = async (e, _id) => {
     e.preventDefault();

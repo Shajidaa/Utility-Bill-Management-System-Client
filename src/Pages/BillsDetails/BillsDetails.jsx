@@ -67,7 +67,7 @@ const BillsDetails = () => {
       }
     } catch (error) {
       toast.error(" Payment failed. Please try again.");
-      console.log(error);
+      // console.log(error);
     }
   };
 
