@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const Register = () => {
-  const { signInWithGoogle, user, setUser, createUserFunc, updateProfileUser } =
+  const { signInWithGoogle, setUser, createUserFunc, updateProfileUser } =
     useAuth();
   const [show, setShow] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
