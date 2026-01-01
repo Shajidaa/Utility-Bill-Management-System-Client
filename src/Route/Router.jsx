@@ -61,11 +61,7 @@ const router = createBrowserRouter([
           fetch(
             `https://utility-bill-management-system-serv.vercel.app/bills-details/${params.id}`
           ),
-        element: (
-          <PrivateRoute>
-            <BillsDetails></BillsDetails>
-          </PrivateRoute>
-        ),
+        element: <BillsDetails></BillsDetails>,
       },
       {
         path: "/myPayBills",

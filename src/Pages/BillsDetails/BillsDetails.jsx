@@ -1,13 +1,13 @@
-import { Link, useLoaderData } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
 import { FaMapMarkerAlt, FaMoneyBillWave } from "react-icons/fa";
 import { MdCategory, MdDateRange, MdDescription } from "react-icons/md";
 import useAuth from "../../Hooks/useAuth";
 import { useRef } from "react";
 import useAxiosSecure from "../../Hooks/Axios/useAxiosSecure";
 import { toast } from "react-toastify";
-import ErrorPage from "../ErrorPage/ErrorPage";
+
 import ErrorCard from "../ErrorCard/ErrorCard";
-import MyContainer from "../../Components/Shared/MyContainer/MyContainer";
+
 import { FaEnvelope, FaPhone, FaUser } from "react-icons/fa6";
 
 const BillsDetails = () => {
@@ -15,7 +15,7 @@ const BillsDetails = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const billRef = useRef();
-
+  const navigate = useNavigate();
   const {
     title,
     category,
@@ -32,6 +32,10 @@ const BillsDetails = () => {
   } = details;
 
   const handleBillModel = () => {
+    if (!user) {
+      toast.error("Please login to pay the bill.");
+      return navigate("/login");
+    }
     billRef.current.showModal();
   };
 

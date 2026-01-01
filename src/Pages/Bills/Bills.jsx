@@ -21,7 +21,7 @@ const Bills = () => {
   if (loading) {
     return <Spinner></Spinner>;
   }
-  console.log(loading);
+  // console.log(loading);
 
   return (
     <MyContainer>
