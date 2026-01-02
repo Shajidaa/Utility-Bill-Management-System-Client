@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import useAxios from "../../Hooks/Axios/useAxios";
 import Card from "../Card/Card";
@@ -104,7 +105,7 @@ const RecentBills = () => {
               bills ➡
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {filteredBills.map((bill, index) => (
               <motion.div
                 key={index}
@@ -127,7 +128,7 @@ const RecentBills = () => {
               bills ➡
             </Link>
           </div>
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
             {recentBills.map((bill, index) => (
               <motion.div
                 key={index}

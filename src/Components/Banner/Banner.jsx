@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Typewriter } from "react-simple-typewriter";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 import "swiper/css";
@@ -51,7 +52,7 @@ const Banner = () => {
       >
         <SwiperSlide>
           <div
-            className="hero md:min-h-[80vh] bg-center bg-cover"
+            className="hero md:min-h-[60vh] bg-center bg-cover"
             style={{
               backgroundImage:
                 "url('https://i.ibb.co.com/608CSWYp/close-up-hands-counting-money.jpg')",
@@ -104,7 +105,7 @@ const Banner = () => {
 
         <SwiperSlide>
           <div
-            className="hero md:min-h-[80vh] bg-center bg-cover"
+            className="hero md:min-h-[60vh] bg-center bg-cover"
             style={{
               backgroundImage:
                 "url('https://i.ibb.co.com/wFpbD1jm/photo-1616803140344-6682afb13cda.jpg')",
@@ -157,7 +158,7 @@ const Banner = () => {
 
         <SwiperSlide>
           <div
-            className="hero md:min-h-[80vh] bg-center bg-cover"
+            className="hero md:min-h-[60vh] bg-center bg-cover"
             style={{
               backgroundImage:
                 "url('https://i.ibb.co.com/rGFhMdtW/close-up-coin-pile-near-banknote-stack.jpg')",
