@@ -41,11 +41,7 @@ const router = createBrowserRouter([
 
       {
         path: "/help",
-        element: (
-          <PrivateRoute>
-            <Help></Help>
-          </PrivateRoute>
-        ),
+        element: <Help></Help>,
       },
       {
         path: "/add-bill",

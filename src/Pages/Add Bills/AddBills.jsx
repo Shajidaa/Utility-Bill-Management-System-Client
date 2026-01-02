@@ -5,6 +5,7 @@ import { FaMoneyBillAlt } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 import { toast } from "react-toastify";
 import useAxiosSecure from "../../Hooks/Axios/useAxiosSecure";
+import MyContainer from "../../Components/Shared/MyContainer/MyContainer";
 
 const AddBills = () => {
   const { user } = useAuth();
@@ -42,7 +43,7 @@ const AddBills = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto py-10 px-4">
+    <MyContainer className=" mx-auto py-10 px-4">
       <title>Add bills | PayUp</title>
 
       <Link
@@ -220,7 +221,7 @@ const AddBills = () => {
           {loading ? "Creating..." : "Create A Bill"}
         </button>
       </form>
-    </div>
+    </MyContainer>
   );
 };
 
