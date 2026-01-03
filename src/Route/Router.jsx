@@ -14,6 +14,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import MyProfile from "../Pages/MyProfile/MyProfile";
 import Help from "../Pages/Help/Help";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import Services from "../Pages/Services/Services";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/bills",
         element: <Bills></Bills>,
+      },
+      {
+        path: "/services",
+        element: <Services></Services>,
       },
       {
         path: "/login",

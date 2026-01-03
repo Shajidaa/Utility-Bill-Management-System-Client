@@ -60,8 +60,12 @@ const Navbar = () => {
       <MyLinks to={"/bills"} onClick={closeMobileMenu}>
         Bills
       </MyLinks>
+      <MyLinks to={"/services"} onClick={closeMobileMenu}>
+        Services
+      </MyLinks>
+
       <MyLinks to={"/aboutUs"} onClick={closeMobileMenu}>
-       About Us
+        About Us
       </MyLinks>
 
       {user && (
