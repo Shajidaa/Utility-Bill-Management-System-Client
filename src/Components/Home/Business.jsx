@@ -38,7 +38,7 @@ const Business = () => {
           <MyContainer className="relative -mt-30 px-6 pb-20">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
               {/* Card 1 */}
-              <div className="group bg-white dark:bg-card-dark rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-slate-100 dark:border-slate-700 flex flex-col items-center text-center">
+              <div className="group bg-white dark:bg-slate-800  rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-slate-100 dark:border-slate-700 flex flex-col items-center text-center">
                 <div className="bg-blue-50 dark:bg-slate-800 p-4 rounded-full mb-6">
                   <svg
                     className="w-10 h-10 text-primary"
@@ -70,7 +70,7 @@ const Business = () => {
               </div>
 
               {/* Card 2 */}
-              <div className="group bg-white dark:bg-card-dark rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-slate-100 dark:border-slate-700 flex flex-col items-center text-center">
+              <div className="group bg-white dark:bg-slate-800  rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-slate-100 dark:border-slate-700 flex flex-col items-center text-center">
                 <div className="bg-blue-50 dark:bg-slate-800 p-4 rounded-full mb-6">
                   <svg
                     className="w-10 h-10 text-primary"
@@ -102,7 +102,7 @@ const Business = () => {
               </div>
 
               {/* Card 3 */}
-              <div className="group bg-white dark:bg-card-dark rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-slate-100 dark:border-slate-700 flex flex-col items-center text-center">
+              <div className="group bg-white dark:bg-slate-800  rounded-xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-slate-100 dark:border-slate-700 flex flex-col items-center text-center">
                 <div className="bg-blue-50 dark:bg-slate-800 p-4 rounded-full mb-6">
                   <svg
                     className="w-10 h-10 text-primary"

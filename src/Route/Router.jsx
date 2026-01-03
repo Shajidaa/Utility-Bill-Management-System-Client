@@ -17,6 +17,7 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import Services from "../Pages/Services/Services";
 import PersonalLoan from "../Pages/Services/loans/PersonalLoan";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import DashboardOverview from "../Pages/Dashboard/DashboardOverview";
 
 const router = createBrowserRouter([
   {
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      {
+        index: true,
+        element: <DashboardOverview></DashboardOverview>,
+      },
       {
         path: "myPayBills",
         element: <MyPayBills></MyPayBills>,

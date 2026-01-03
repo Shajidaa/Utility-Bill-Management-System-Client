@@ -5,6 +5,27 @@ const Dashboard = () => {
     <>
       <li>
         <NavLink 
+          to="/dashboard" 
+          end
+          className={({ isActive }) => 
+            `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
+              isActive 
+                ? "bg-primary/10 text-primary border border-primary/20 shadow-sm" 
+                : "text-base-content hover:bg-base-200 hover:text-primary"
+            }`
+          }
+        >
+          <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2v0" />
+          </svg>
+          <span className="font-medium">Overview</span>
+          <svg className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </NavLink>
+      </li>
+      <li>
+        <NavLink 
           to="/dashboard/myPayBills" 
           className={({ isActive }) => 
             `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
