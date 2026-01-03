@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const faqs = [
   {
@@ -40,14 +40,14 @@ const FQA = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen flex items-center justify-center px-4 py-12 transition-colors duration-300">
       <div className="max-w-3xl w-full space-y-10">
         {/* Header */}
         <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold text-slate-900">
+          <h1 className="text-4xl font-bold text-slate-900 dark:text-white">
             Frequently asked questions
           </h1>
-          <p className="text-slate-500 max-w-2xl mx-auto">
+          <p className="text-slate-500 dark:text-gray-400 max-w-2xl mx-auto">
             Get answers to common questions and manage your finances smarter.
           </p>
         </div>
@@ -57,17 +57,17 @@ const FQA = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl border border-slate-200 shadow-sm"
+              className="bg-white dark:bg-gray-800 rounded-xl border border-slate-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-200"
             >
               <button
                 onClick={() => toggleAccordion(index)}
-                className="w-full flex justify-between items-center px-6 py-5 text-left"
+                className="w-full flex justify-between items-center px-6 py-5 text-left hover:bg-slate-50 dark:hover:bg-gray-700 rounded-xl transition-colors duration-200"
               >
-                <span className="font-semibold text-lg text-slate-800">
+                <span className="font-semibold text-lg text-slate-800 dark:text-gray-200">
                   {faq.question}
                 </span>
                 <span
-                  className={`text-blue-600 text-2xl transition-transform ${
+                  className={`text-blue-600 dark:text-blue-400 text-2xl transition-transform duration-200 ${
                     activeIndex === index ? "rotate-45" : ""
                   }`}
                 >
@@ -76,7 +76,7 @@ const FQA = () => {
               </button>
 
               {activeIndex === index && (
-                <div className="px-6 pb-5 text-slate-600 leading-relaxed">
+                <div className="px-6 pb-5 text-slate-600 dark:text-gray-300 leading-relaxed animate-fadeIn">
                   {faq.answer}
                 </div>
               )}
@@ -86,9 +86,12 @@ const FQA = () => {
 
         {/* Footer */}
         <div className="text-center pt-6">
-          <p className="text-slate-400 text-sm">
+          <p className="text-slate-400 dark:text-gray-500 text-sm">
             Still have questions?{" "}
-            <a href="#" className="text-blue-600 font-medium hover:underline">
+            <a
+              href="#"
+              className="text-blue-600 dark:text-blue-400 font-medium hover:underline transition-colors duration-200"
+            >
               Contact Support
             </a>
           </p>

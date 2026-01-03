@@ -194,7 +194,7 @@ const Navbar = () => {
                         <div className="py-2">
                           {/* Profile Link */}
                           <Link
-                            to={"/myProfile"}
+                            to={"/dashboard/myProfile"}
                             onClick={closeProfileDropdown}
                             className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
                           >

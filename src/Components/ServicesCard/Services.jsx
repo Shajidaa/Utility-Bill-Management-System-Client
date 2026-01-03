@@ -56,7 +56,7 @@ const Services = () => {
 
   return (
     <MyContainer>
-      <section className="py-20 transition-all duration-500">
+      <section className="pt-20 transition-all duration-500">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: -30 }}

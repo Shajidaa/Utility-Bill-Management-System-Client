@@ -54,7 +54,7 @@ const MyProfile = () => {
   const handleSave = async () => {
     try {
       setIsLoading(true);
-      
+
       // Update profile (displayName and photoURL)
       const profileUpdateData = {
         displayName: formData.displayName,
@@ -80,7 +80,7 @@ const MyProfile = () => {
     }
   };
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-gray-900 px-6 py-10 transition duration-300">
+    <div className="min-h-screen flex flex-col items-center justify-center px-6 py-10 transition duration-300">
       <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-3xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
         <div className="bg-blue-50 dark:bg-gray-700 text-center py-8 relative">
           <h1 className="text-xl font-semibold text-gray-800 dark:text-gray-200">

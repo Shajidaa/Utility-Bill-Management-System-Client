@@ -69,7 +69,7 @@ const RecentBills = () => {
       </h1>
 
       {/* Category Buttons */}
-      <div className="grid grid-cols-2 gap-5 md:grid-cols-4 mb-10">
+      <div className="grid grid-cols-2 gap-5 md:grid-cols-4 mb-10 md:mb-20">
         {category.map((c, i) => (
           <motion.div
             key={i}

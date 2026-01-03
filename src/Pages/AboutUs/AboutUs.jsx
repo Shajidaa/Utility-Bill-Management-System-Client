@@ -1,10 +1,11 @@
 import { Link } from "react-router";
 import MyContainer from "../../Components/Shared/MyContainer/MyContainer";
 import FQA from "../../Components/FQA";
+import CTA from "../../Components/Home/CTA";
 
 const AboutUs = () => {
   return (
-    <div className=" min-h-screen bg-white dark:bg-slate-900">
+    <div className=" min-h-screen ">
       <title>About Us | PayUp</title>
 
       {/* Hero Section */}
@@ -68,7 +69,7 @@ const AboutUs = () => {
       </MyContainer>
 
       {/* Values Section */}
-      <div className="bg-slate-50 dark:bg-slate-800/50 py-20">
+      <div className=" py-20">
         <MyContainer>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -82,7 +83,7 @@ const AboutUs = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Security */}
-            <div className="bg-white dark:bg-card-dark rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+            <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
               <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <svg
                   className="w-8 h-8 text-green-600 dark:text-green-400"
@@ -106,7 +107,7 @@ const AboutUs = () => {
             </div>
 
             {/* Transparency */}
-            <div className="bg-white dark:bg-card-dark rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+            <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
               <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <svg
                   className="w-8 h-8 text-blue-600 dark:text-blue-400"
@@ -136,7 +137,7 @@ const AboutUs = () => {
             </div>
 
             {/* Innovation */}
-            <div className="bg-white dark:bg-card-dark rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+            <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
               <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                 <svg
                   className="w-8 h-8 text-purple-600 dark:text-purple-400"
@@ -174,7 +175,7 @@ const AboutUs = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Team Member 1 */}
-          <div className="bg-white dark:bg-card-dark rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+          <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
             <div className="w-24 h-24 bg-gradient-to-br from-primary to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-white text-2xl font-bold">JS</span>
             </div>
@@ -187,7 +188,7 @@ const AboutUs = () => {
           </div>
 
           {/* Team Member 2 */}
-          <div className="bg-white dark:bg-card-dark rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+          <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
             <div className="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-white text-2xl font-bold">SD</span>
             </div>
@@ -200,7 +201,7 @@ const AboutUs = () => {
           </div>
 
           {/* Team Member 3 */}
-          <div className="bg-white dark:bg-card-dark rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+          <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
             <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-white text-2xl font-bold">MJ</span>
             </div>
@@ -238,32 +239,7 @@ const AboutUs = () => {
         </MyContainer>
       </div>
 
-      {/* CTA Section */}
-      <MyContainer className="py-20 text-center">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Join the PayUp Family?
-          </h2>
-          <p className="text-slate-600 dark:text-slate-300 text-lg mb-8">
-            Experience the future of digital banking with secure, fast, and
-            reliable financial services.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/register"
-              className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors duration-300"
-            >
-              Get Started Today
-            </Link>
-            <Link
-              to="/help"
-              className="border border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary/10 transition-colors duration-300"
-            >
-              Learn More
-            </Link>
-          </div>
-        </div>
-      </MyContainer>
+      <CTA></CTA>
     </div>
   );
 };
