@@ -82,6 +82,12 @@ const Login = () => {
               <h1 className="text-2xl md:text-3xl font-bold text-center text-sky-600 dark:text-sky-400 mb-4">
                 Login to your account
               </h1>
+              
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-3 mb-4">
+                <p className="text-sm text-blue-700 dark:text-blue-300 text-center">
+                  <span className="font-semibold">Demo Credentials:</span> The form is pre-filled with dummy credentials. You can change them if needed.
+                </p>
+              </div>
 
               <form onSubmit={logInSubmit}>
                 <fieldset className="space-y-4">
@@ -94,6 +100,7 @@ const Login = () => {
                       name="email"
                       placeholder="Email"
                       required
+                      defaultValue="test@gmail.com"
                       className="input w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                     />
                   </div>
@@ -107,6 +114,7 @@ const Login = () => {
                       name="password"
                       placeholder="Password"
                       required
+                      defaultValue="Pa$$w0rd!"
                       className="input w-full border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white pr-12"
                     />
                     <button
