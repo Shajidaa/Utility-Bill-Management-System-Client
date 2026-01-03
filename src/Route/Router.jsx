@@ -13,6 +13,7 @@ import AddBills from "../Pages/Add Bills/AddBills";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import MyProfile from "../Pages/MyProfile/MyProfile";
 import Help from "../Pages/Help/Help";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
 
+      {
+        path: "/aboutUs",
+        element: <AboutUs></AboutUs>,
+      },
       {
         path: "/help",
         element: <Help></Help>,

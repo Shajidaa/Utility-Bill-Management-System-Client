@@ -1,94 +1,126 @@
-import React from "react";
 import MyContainer from "../Shared/MyContainer/MyContainer";
-import { FaLocationDot } from "react-icons/fa6";
-import { motion } from "framer-motion";
+import { FaStar } from "react-icons/fa6";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const testimonials = [
   {
-    name: "Tariq",
+    name: "Tariq Rahman",
     location: "Rajshahi",
-    feedback:
-      "PayUp made paying my bills stress-free. One platform for everything!",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    feedback: "PayUp made paying my bills stress-free. One platform for everything!",
+    rating: 5,
+    role: "Software Engineer"
   },
   {
-    name: "Rafiq",
+    name: "Rafiq Ahmed",
     location: "Dhaka",
-    feedback:
-      "The reminders help me never miss a due date again. Truly reliable.",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    feedback: "The reminders help me never miss a due date again. Truly reliable service.",
+    rating: 5,
+    role: "Business Owner"
   },
   {
-    name: "Nusrat",
-    location: "Chittagong",
-    feedback:
-      "I love how fast and secure it is — no more waiting in long queues.",
+    name: "Karim Hassan",
+    location: "Sylhet",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    feedback: "Outstanding service! The automated bill payments feature has revolutionized my expenses.",
+    rating: 5,
+    role: "Financial Advisor"
   },
+  {
+    name: "Fatima Khan",
+    location: "Khulna",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    feedback: "PayUp's security features give me complete peace of mind for all transactions.",
+    rating: 5,
+    role: "Accountant"
+  }
 ];
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  }),
-};
 
 const CustomerFeedback = () => {
   return (
-    <MyContainer>
-      <h1 className="text-center text-3xl font-semibold mb-5">
-        Trusted by Thousands of Happy Users
-      </h1>
-      <p className="text-center text-base font-normal text-gray-400 mb-10">
-        Real stories from people who use PayUp to simplify their monthly bills.
-      </p>
+    <div className="py-16 ">
+      <MyContainer>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            What Our Customers Say
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Real stories from people who use PayUp to simplify their monthly bills.
+          </p>
+        </div>
 
-      <div className="flex flex-wrap justify-between gap-5 items-center mb-5">
-        {testimonials.map((t, index) => (
-          <motion.div
-            key={index}
-            custom={index}
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false }}
-            className="w-full border border-blue-400 max-w-md bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden mx-auto"
-          >
-            <div className="flex justify-between items-center px-6 py-4">
-              <div className="flex space-x-4">
-                <div>
-                  <svg
-                    className="rounded-full bg-yellow-400"
-                    height={48}
-                    width={48}
-                    viewBox="0 0 48 48"
-                    xmlns="http://www.w3.org/2000/svg"
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={24}
+          slidesPerView={1}
+          navigation={true}
+          pagination={{
+            clickable: true,
+            bulletClass: 'swiper-pagination-bullet !bg-blue-500',
+            bulletActiveClass: 'swiper-pagination-bullet-active !bg-blue-600',
+          }}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 24,
+            },
+          }}
+          className="pb-12"
+        >
+          {testimonials.map((testimonial, index) => (
+            <SwiperSlide key={index}>
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow h-full">
+                <div className="flex items-center mb-4">
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover mr-4"
                   />
-                </div>
-                <div>
-                  <div className="text-lg font-bold dark:text-white">
-                    {t.name},
+                  <div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {testimonial.role}
+                    </p>
                   </div>
-                  <div className="text-sm flex text-gray-500 dark:text-gray-200">
-                    <FaLocationDot className="mr-1" />
-                    {t.location}
-                  </div>
                 </div>
+
+                <div className="flex items-center mb-3">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <FaStar key={i} className="text-yellow-400 text-sm" />
+                  ))}
+                </div>
+
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                  "{testimonial.feedback}"
+                </p>
               </div>
-            </div>
-            <div className="px-6 py-4">
-              <div className="text-sm text-gray-800 dark:text-gray-200">
-                {t.feedback}
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </MyContainer>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </MyContainer>
+    </div>
   );
 };
 
