@@ -122,12 +122,6 @@ const Login = () => {
                     </button>
                   </div>
 
-                  <div className="text-right">
-                    <a className="link link-hover text-sky-600 dark:text-sky-400">
-                      Forgot password?
-                    </a>
-                  </div>
-
                   <button
                     type="submit"
                     className="btn w-full!  mt-2 primary-btn text-white"
