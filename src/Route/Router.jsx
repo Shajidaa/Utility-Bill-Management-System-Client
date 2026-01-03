@@ -15,6 +15,7 @@ import MyProfile from "../Pages/MyProfile/MyProfile";
 import Help from "../Pages/Help/Help";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Services from "../Pages/Services/Services";
+import PersonalLoan from "../Pages/Services/loans/PersonalLoan";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,12 @@ const router = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
+        children: [
+          {
+            path: "loans/personal-loan",
+            element: <PersonalLoan></PersonalLoan>,
+          },
+        ],
       },
       {
         path: "/login",
