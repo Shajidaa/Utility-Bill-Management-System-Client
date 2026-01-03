@@ -32,36 +32,28 @@ const Footer = () => {
               </h3>
               <ul className="space-y-1">
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/bills"
                     className="hover:text-sky-600 dark:hover:text-sky-300"
                   >
-                    Features
-                  </a>
+                    Bills
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/services"
                     className="hover:text-sky-600 dark:hover:text-sky-300"
                   >
-                    Integrations
-                  </a>
+                    Services
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/about-us"
                     className="hover:text-sky-600 dark:hover:text-sky-300"
                   >
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-sky-600 dark:hover:text-sky-300"
-                  >
-                    FAQ
-                  </a>
+                    About Us
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -72,28 +64,12 @@ const Footer = () => {
               </h3>
               <ul className="space-y-1">
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to={"/help"}
                     className="hover:text-sky-600 dark:hover:text-sky-300"
                   >
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-sky-600 dark:hover:text-sky-300"
-                  >
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-sky-600 dark:hover:text-sky-300"
-                  >
-                    Terms of Service
-                  </a>
+                    Help Center
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -104,28 +80,12 @@ const Footer = () => {
               </h3>
               <ul className="space-y-1">
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    to="/about-us"
                     className="hover:text-sky-600 dark:hover:text-sky-300"
                   >
-                    Public API
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-sky-600 dark:hover:text-sky-300"
-                  >
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="hover:text-sky-600 dark:hover:text-sky-300"
-                  >
-                    Guides
-                  </a>
+                    About Us
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -144,7 +104,7 @@ const Footer = () => {
                   <FaFacebook />
                 </a>
                 <a
-                  href="#"
+                  href="https://x.com/Shajidadev"
                   title="Twitter"
                   className="hover:text-sky-600 dark:hover:text-sky-400"
                 >
