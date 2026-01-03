@@ -69,11 +69,8 @@ const Navbar = () => {
 
       {user && (
         <>
-          <MyLinks to={"/add-bill"} onClick={closeMobileMenu}>
-            Add Bill
-          </MyLinks>
-          <MyLinks to={"/myPayBills"} onClick={closeMobileMenu}>
-            Pay Bills
+          <MyLinks to={"/dashboard"} onClick={closeMobileMenu}>
+            Dashboard
           </MyLinks>
         </>
       )}

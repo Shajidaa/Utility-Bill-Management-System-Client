@@ -16,6 +16,7 @@ import Help from "../Pages/Help/Help";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Services from "../Pages/Services/Services";
 import PersonalLoan from "../Pages/Services/loans/PersonalLoan";
+import Dashboard from "../Pages/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -61,14 +62,6 @@ const router = createBrowserRouter([
         element: <Help></Help>,
       },
       {
-        path: "/add-bill",
-        element: (
-          <PrivateRoute>
-            <AddBills></AddBills>
-          </PrivateRoute>
-        ),
-      },
-      {
         path: "/bills-details/:id",
         loader: ({ params }) =>
           fetch(
@@ -76,21 +69,27 @@ const router = createBrowserRouter([
           ),
         element: <BillsDetails></BillsDetails>,
       },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
+    children: [
       {
-        path: "/myPayBills",
-        element: (
-          <PrivateRoute>
-            <MyPayBills></MyPayBills>
-          </PrivateRoute>
-        ),
+        path: "myPayBills",
+        element: <MyPayBills></MyPayBills>,
       },
       {
-        path: "/myProfile",
-        element: (
-          <PrivateRoute>
-            <MyProfile></MyProfile>
-          </PrivateRoute>
-        ),
+        path: "add-bill",
+        element: <AddBills></AddBills>,
+      },
+      {
+        path: "myProfile",
+        element: <MyProfile></MyProfile>,
       },
     ],
   },
