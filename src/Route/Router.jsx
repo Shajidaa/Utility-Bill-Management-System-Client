@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 
 import Home from "../Pages/Home/Home";
 import MainLayout from "../layouts/MainLayout";
+import DashboardLayout from "../layouts/DashboardLayout";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
@@ -16,7 +17,6 @@ import Help from "../Pages/Help/Help";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Services from "../Pages/Services/Services";
 import PersonalLoan from "../Pages/Services/loans/PersonalLoan";
-import Dashboard from "../Pages/Dashboard/Dashboard";
 import DashboardOverview from "../Pages/Dashboard/DashboardOverview";
 
 const router = createBrowserRouter([
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: (
       <PrivateRoute>
-        <Dashboard></Dashboard>
+        <DashboardLayout></DashboardLayout>
       </PrivateRoute>
     ),
     children: [
