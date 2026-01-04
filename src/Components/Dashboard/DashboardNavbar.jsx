@@ -2,15 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 import { toast } from "react-toastify";
-import {
-  FaChevronDown,
-  FaUser,
-  FaHome,
-  FaTachometerAlt,
-  FaBell,
-  FaSearch,
-  FaCog,
-} from "react-icons/fa";
+import { FaChevronDown, FaUser, FaHome, FaTachometerAlt } from "react-icons/fa";
 import { TbLogout2 } from "react-icons/tb";
 import { HiMenuAlt3 } from "react-icons/hi";
 

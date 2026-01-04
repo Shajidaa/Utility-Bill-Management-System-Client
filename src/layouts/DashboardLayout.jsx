@@ -23,14 +23,12 @@ const DashboardLayout = () => {
         <DashboardSidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
 
         {/* Main Content Area */}
-        <MyContainer className="flex-1 transition-all duration-300 ease-in-out">
+        <MyContainer className="flex-1 pt-5 transition-all duration-300 ease-in-out">
           <div className="">
             <div>
               {/* Content Container with Professional Styling */}
               <div>
-                <div>
-                  <Outlet />
-                </div>
+                <Outlet />
               </div>
             </div>
           </div>
